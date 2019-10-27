@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = crypto.o main_crypto.o
-LINKOBJ  = crypto.o main_crypto.o
+OBJ      = main_crypto.o decrypt.o encrypt.o tools.o
+LINKOBJ  = main_crypto.o decrypt.o encrypt.o tools.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -24,8 +24,14 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-crypto.o: crypto.cpp
-	$(CPP) -c crypto.cpp -o crypto.o $(CXXFLAGS)
-
 main_crypto.o: main_crypto.cpp
 	$(CPP) -c main_crypto.cpp -o main_crypto.o $(CXXFLAGS)
+
+decrypt.o: decrypt.cpp
+	$(CPP) -c decrypt.cpp -o decrypt.o $(CXXFLAGS)
+
+encrypt.o: encrypt.cpp
+	$(CPP) -c encrypt.cpp -o encrypt.o $(CXXFLAGS)
+
+tools.o: tools.cpp
+	$(CPP) -c tools.cpp -o tools.o $(CXXFLAGS)

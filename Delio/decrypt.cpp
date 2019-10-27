@@ -1,12 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "decrypto.h"
+#include "decrypt.h"
 
 int descriptografar(){
 	printf("descriptografar");
 	return 0;
 }
 
-int void quebraForcaBruta(){
-	return 0;
+void quebraForcaBruta(){
 }
