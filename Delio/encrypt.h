@@ -2,3 +2,5 @@
 #include <stdlib.h>
 
 int criptografar();
+
+int gerarChave();
