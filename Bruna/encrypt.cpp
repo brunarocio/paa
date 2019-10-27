@@ -21,12 +21,12 @@ int gerarChave(){
 }
 
 /* Um dos otimizadores do teste de primalidade é checar se o número é par */
-bool verificarParImpar(int num){
-	int r = 0;
+bool verificarParImpar(long double num){
+	long double r = 0;
 	
 	if (num > 2)
 	{
-		r = num % 2;
+		r = fmodl(num, 2);
 		if(r = 0)
 			return false;
 		return true;
@@ -36,10 +36,10 @@ bool verificarParImpar(int num){
 	
 }
 
-bool verificaPrimalidade(int num){
+bool verificaPrimalidade(long double num){
 	bool bPrimo;
-	int a = 3;
-	int prime;
+	long double a = 3;
+	long double prime;
 	
 	if (num <= 1)
 		return true;
@@ -50,7 +50,7 @@ bool verificaPrimalidade(int num){
 	else{
 		//Teorema de Fermat para verificar primalidade
 		
-		prime = (a ^ (num-1)) % num; //se o resto for 1, entao o número é primo, pois, esse deve ser o maximo divisor comum entre os números 
+		prime = fmodl(pow(a, (num-1)),  num); //se o resto for 1, entao o número é primo, pois, esse deve ser o maximo divisor comum entre os números 
 		if (prime = 1)
 			return true; //o número é primo
 		return false; //o número não é primo, pois, o resultado diferente de 1 indica que se trata de um número composto
