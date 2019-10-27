@@ -2,6 +2,6 @@
     "githubPullRequests.remotes": [
         "origin",
         "upstream",
-        "https://github.com/brunarocio/paa"
+        "https://github.com/brunarocio/paa.git"
     ]
 }
