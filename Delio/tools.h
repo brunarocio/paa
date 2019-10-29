@@ -8,3 +8,5 @@ int descriptografar();
 void gravarArquivo(char *);
 
 void quebraBruta();
+
+long double *gerarNumeroAleatorio(int tamanho);
