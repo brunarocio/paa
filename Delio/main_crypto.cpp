@@ -8,7 +8,7 @@
 
 int main(void) {
 	gerarChave();
-	char informacao[] = "Progrma em andamento....";
+	char informacao[] = "Progrma em andamento..1...";
 	char *pInformacao;
 	pInformacao = &informacao[0];
 	printf("Gravando arquivo...\n");

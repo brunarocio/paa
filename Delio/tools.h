@@ -5,7 +5,7 @@ int criptografar();
 
 int descriptografar();
 
-void gravarArquivo(char *);
+void gravarArquivo(char *info);
 
 void quebraBruta();
 

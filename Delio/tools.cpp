@@ -10,7 +10,6 @@ void gravarArquivo(char *info){
 	FILE *fmat;
 	fmat = fopen("arquivo.txt", "w");
 	fprintf(fmat,info);
-	//sprintf(fmat,"teste 2 sprint");
 	fclose(fmat);
 }
 
@@ -22,7 +21,6 @@ long double *gerarNumeroAleatorio(int tamanho){
 	srand(time(NULL));
 	for(int i = 0; i<tamanho;i++){
 		partNumero = rand() % 10;
-		//numero[i] = partNumero+'0';
 		numero[i] = partNumero+'0';
 	}
 	//printf("Numero: %s\n",numero);
@@ -36,7 +34,7 @@ long double *gerarNumeroAleatorio(int tamanho){
 	//printf("NOvo numero impar %s",numero);
 
 	printf("Numero: %s\n",numero);
-	gravarArquivo(pNumero);
+	//char *pnmArquivo = &nmArquivo[0];
 	numero[1] = '.';
 	numero[tamanho-1]= '\O';
 	char *pnumeroIni = pNumero;
