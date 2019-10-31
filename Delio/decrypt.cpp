@@ -2,10 +2,11 @@
 #include <stdlib.h>
 #include "decrypt.h"
 
-int descriptografar(){
-	printf("descriptografar");
-	return 0;
+bool descriptografar(){
+	printf("descriptografar\nNão implementado\n");
+	return true;
 }
 
-void quebraForcaBruta(){
+bool quebraForcaBruta(){
+	printf("Qebra forca bruta\nNão implementado\n");
 }

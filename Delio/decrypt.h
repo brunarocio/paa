@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int descriptografar();
+bool descriptografar();
 
-void quebraForcaBruta();
+bool quebraForcaBruta();

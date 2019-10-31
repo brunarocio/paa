@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int criptografar();
+bool criptografar();
 
 int gerarChave();
