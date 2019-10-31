@@ -22,6 +22,7 @@ long double *gerarNumeroAleatorio(int tamanho){
 	srand(time(NULL));
 	for(int i = 0; i<tamanho;i++){
 		partNumero = rand() % 10;
+		//numero[i] = partNumero+'0';
 		numero[i] = partNumero+'0';
 	}
 	//printf("Numero: %s\n",numero);
@@ -30,10 +31,11 @@ long double *gerarNumeroAleatorio(int tamanho){
 		partNumero +=1;
 		//printf("novo ultimo numero %i\n",partNumero);
 		numero[tamanho-1] = partNumero+'0';
+		//numero[tamanho-1] = partNumero
 	}
 	//printf("NOvo numero impar %s",numero);
 
-	//printf("Numero: %s\n",numero);
+	printf("Numero: %s\n",numero);
 	gravarArquivo(pNumero);
 	numero[1] = '.';
 	numero[tamanho-1]= '\O';
