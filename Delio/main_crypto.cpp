@@ -13,10 +13,11 @@ int main(int argc, char *argv[]) {
 		printf ("ERRO: Numero de parametros %s <d ou c> <arquivo>\n", argv[0]);
 		exit (1);
 	}
+	//char opcao = *(argv[1]);
 	if (argv[1] == "c"){
 		printf("Opção criptografar\n");
 	}
-	else if (argv[1] == "1"){
+	else if (argv[1] == "d"){
 		printf("Opção descriptografar\n");
 	}
 	else {
