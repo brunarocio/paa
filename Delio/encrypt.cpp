@@ -4,24 +4,15 @@
 #include "tools.h"
 #include "encrypt.h"
 
-bool criptografar(){
-	printf("criptografar\nNão implementado\n");
-	return true;
-}
-
-int gerarChavePublica(){
-	printf("Gerar chave publica\nNão implementado\n");
-}
-
-int gerarChavePrivada(){
-	printf("Gerar chave privada\nNão implementado\n");
+int criptografar(){
+	printf("criptografar\n");
+	return 0;
 }
 
 int gerarChave(){
-	printf("Gerar chave");
 	long double *numBig_1;
 	numBig_1 = gerarNumeroAleatorio(100);
-	printf("O numero � %c",numBig_1);
+	printf("O numero � %c",numBig_1);
 	
 	for (int i = 0; i < 2; i++){
 		
@@ -35,9 +26,9 @@ int gerarChave(){
 }
 
 bool verificaPrimalidade(int num){
-	
+	return true;
 }
 
 bool verificarParImpar(){
-	
+	return true;
 }

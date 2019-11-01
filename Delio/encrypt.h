@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-bool criptografar();
+int criptografar();
 
 int gerarChave();
+
+bool verificaPrimalidade(int num);
+
+bool verificarParImpar();

@@ -3,10 +3,9 @@
 #include "decrypt.h"
 
 bool descriptografar(){
-	printf("descriptografar\nNão implementado\n");
-	return true;
+	printf("descriptografar\n");
+	return 0;
 }
 
 bool quebraForcaBruta(){
-	printf("Qebra forca bruta\nNão implementado\n");
 }
