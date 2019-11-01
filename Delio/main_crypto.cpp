@@ -14,26 +14,31 @@ int main(int argc, char *argv[]) {
 		exit (1);
 	}
 	//char opcao = *(argv[1]);
-	if (argv[1] == "c"){
+	if (strcmp(argv[1],"c")==0){
+		//opçoes para criptografia
 		printf("Opção criptografar\n");
+		gerarChave();
+		char informacao[] = "Progrma em andamento.....";
+		char *pInformacao;
+		pInformacao = &informacao[0];
+		printf("Gravando arquivo...\n");
+		gravarArquivo(pInformacao);
+		printf("Arquivo gravado com sucesso!\n");
+		printf("Gerando numero primo da ordem 10^100\n");
+		printf("Verificando se o numero Ã© primo ou nÃ£o\n");
+		printf("Criptografando arquivo..\n");
+		
 	}
-	else if (argv[1] == "d"){
+	else if (strcmp(argv[1],"d")==0){
+		//opcoes para descriptografia
 		printf("Opção descriptografar\n");
+		printf("Tentando quebrar a chave por forÃ§a bruta..\n");
+		printf("Quebrando a chave utiliznado o algoritmo xxx\n");
 	}
 	else {
-		printf("Escolha uma das opções validas\n%s",argv[1]);
+		printf("ERRO: Opção %s não definida.\nOpções disponíveis:\nd: para descriptografar\nc: para criptografar <arquivo>\nComando completo: CryptoRSA <opcao> <arquivo>\n", argv[1]);
+		return 0;
 	}
-	gerarChave();
-	char informacao[] = "Progrma em andamento.....";
-	char *pInformacao;
-	pInformacao = &informacao[0];
-	printf("Gravando arquivo...\n");
-	gravarArquivo(pInformacao);
-	printf("Arquivo gravado com sucesso!\n");
-	printf("Gerando numero primo da ordem 10^100\n");
-	printf("Verificando se o numero Ã© primo ou nÃ£o\n");
-	printf("Criptografando arquivo..\n");
-	printf("Tentando quebrar a chave por forÃ§a bruta..\n");
-	printf("Quebrando a chave utiliznado o algoritmo xxx\n");
+	
 	return 0;
 }
