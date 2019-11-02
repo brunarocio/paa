@@ -38,7 +38,7 @@ bool verificarParImpar(long double num){
 
 bool verificaPrimalidade(long double num){
 	bool bPrimo;
-	long double a = 3;
+	long double a = 3; //usar a função de gerador de randômicos para gerar uma lista de possíveis números para testes
 	long double prime;
 	
 	if (num <= 1)
