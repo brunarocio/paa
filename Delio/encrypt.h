@@ -5,6 +5,6 @@ int criptografar();
 
 int gerarChave();
 
-bool verificaPrimalidade(int num);
+bool verificaPrimalidade(long double num);
 
-bool verificarParImpar();
+bool verificarParImpar(long double num);

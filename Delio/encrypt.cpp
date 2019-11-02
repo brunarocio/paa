@@ -12,7 +12,7 @@ int criptografar(){
 int gerarChave(){
 	long double *numBig_1;
 	numBig_1 = gerarNumeroAleatorio(100);
-	printf("O numero é %c",numBig_1);
+	printf("O numero ï¿½ %c",numBig_1);
 	
 	for (int i = 0; i < 2; i++){
 		
@@ -25,16 +25,8 @@ int gerarChave(){
 	return 1;
 }
 
-<<<<<<< HEAD
-bool verificaPrimalidade(int num){
-	return true;
-}
-
-bool verificarParImpar(){
-	return true;
-=======
-/* Um dos otimizadores do teste de primalidade é checar se o número é par */
-/* Verificar se invés de retornar true ou false, apenas soma mais um e retorna */
+/* Um dos otimizadores do teste de primalidade ï¿½ checar se o nï¿½mero ï¿½ par */
+/* Verificar se invï¿½s de retornar true ou false, apenas soma mais um e retorna */
 bool verificarParImpar(long double num){
 	long double r = 0;
 	
@@ -61,19 +53,18 @@ bool verificaPrimalidade(long double num){
 	
 	bPrimo = verificarParImpar(num);
 	if(bPrimo)
-		return false; //não é primo
+		return false; //nï¿½o ï¿½ primo
 	else{
 		//Teorema de Fermat para verificar primalidade
 		for (i=0;i<=30;i++){ //teste um certo numero de vezes, definir quanto
 			a = a / 2; //usa a metade do numero gerado
-			prime = fmodl(pow(a, (num-1)),  num); //se o resto for 1, entao o número é primo, pois, esse deve ser o maximo divisor comum entre os números 
+			prime = fmodl(pow(a, (num-1)),  num); //se o resto for 1, entao o nï¿½mero ï¿½ primo, pois, esse deve ser o maximo divisor comum entre os nï¿½meros 
 			
 			if (prime != 1)
-				return false; //o número não é primo, pois, o resultado diferente de 1 indica que se trata de um número composto
+				return false; //o nï¿½mero nï¿½o ï¿½ primo, pois, o resultado diferente de 1 indica que se trata de um nï¿½mero composto
 		}
 	
-		//se chegou ao fim do laço sem sair, é primo
-		return true; //o número é primo
+		//se chegou ao fim do laï¿½o sem sair, ï¿½ primo
+		return true; //o nï¿½mero ï¿½ primo
 	}	
->>>>>>> 5607c00bc7b955bf857de45cc3f8eea71b0ab0eb
 }
