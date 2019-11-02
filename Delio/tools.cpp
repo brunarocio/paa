@@ -15,8 +15,10 @@ void gravarArquivo(char *info){
 
 
 long double *gerarNumeroAleatorio(int tamanho){
+	long double numeroFinal;
 	char numero[50];
 	char *pNumero = &numero[0];
+	char *pnumeroIni;
 	int partNumero;
 	srand(time(NULL));
 	for(int i = 0; i<tamanho;i++){
@@ -33,15 +35,30 @@ long double *gerarNumeroAleatorio(int tamanho){
 	}
 	//printf("NOvo numero impar %s",numero);
 
-	printf("Numero: %s\n",numero);
+	//printf("Numero: %s\n",numero);
 	//char *pnmArquivo = &nmArquivo[0];
 	numero[1] = '.';
 	numero[tamanho-1]= '\O';
-	char *pnumeroIni = pNumero;
+	pnumeroIni = pNumero;
+	
 	char *e;
-	long double numeroFinal = strtold(pnumeroIni,&e);
+	printf("Numero 1: %s\n",numero);
+	numeroFinal = strtold(pnumeroIni,&e);
+	printf("Numero 2: %s\n",numero);
 	return &numeroFinal;
-	
-	
 }
 
+int testeConversao(){
+	char *string;
+   char *stopstring;
+   long double x;
+
+   string = "3.1415926535898This stopped it";
+   x = strtold(string, &stopstring);
+   printf("string = %s\n", string);
+   printf("   strtold = %.13Lf\n", x);
+   printf("   Stopped scan at: %s\n\n", stopstring);
+
+  return 0;
+
+}
