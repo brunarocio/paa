@@ -42,7 +42,7 @@ bool verificaPrimalidade(long double num){
 	long double prime;
 	
 	if (num <= 1)
-		return true;
+		return true;  
 	
 	bPrimo = verificarParImpar(num);
 	if(bPrimo)
