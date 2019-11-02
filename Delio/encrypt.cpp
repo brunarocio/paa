@@ -22,7 +22,7 @@ int gerarChave(){
 		printf("Tamanho %d",sizeof(teste));		
 		//printf("numero %Lf\n", pow(10,100) + numRand);
 	}
-	return 0;
+	return 1;
 }
 
 bool verificaPrimalidade(int num){
