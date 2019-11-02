@@ -17,8 +17,9 @@ int main(int argc, char *argv[]) {
 	if (strcmp(argv[1],"c")==0){
 		//opçoes para criptografia
 		printf("======== Opção criptografar =========\n");
-		printf("Passo 1 - Gerando a chave..\n");
-		printf("Passo 2 - Criptografando o arquivo..\n");
+		printf("Passo 1 - Gerando a chave\n");
+		printf("Passo 2 - Criptografando o arquivo\n");
+		printf("=====================================\n");
 		int chave = 1;	//gerarChave();
 		printf("chave: %i",chave);
 		char informacao[] = "Progrma em andamento.....";
