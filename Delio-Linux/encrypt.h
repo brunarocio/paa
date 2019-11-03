@@ -3,7 +3,9 @@
 
 int criptografar();
 
-int gerarChave();
+long double gerarChavePublica(long double p, long double q);
+
+void gerarChavePrivada();
 
 bool verificaPrimalidade(long double num);
 

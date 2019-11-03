@@ -14,8 +14,10 @@ void gravarArquivo(char *info){
 }
 
 
-long double *gerarNumeroAleatorio(int tamanho){
+long double gerarNumeroAleatorio(int tamanho){
 	long double numeroFinal;
+	long double *pNumeroFinal = NULL;
+	pNumeroFinal = &numeroFinal;
 	char numero[50];
 	char *pNumero = &numero[0];
 	char *pnumeroIni;
@@ -24,31 +26,28 @@ long double *gerarNumeroAleatorio(int tamanho){
 	for(int i = 0; i<tamanho;i++){
 		partNumero = rand() % 10;
 		numero[i] = partNumero+'0';
+		//printf("Numero %i: %i | ",i,partNumero);
 	}
-	//printf("Numero: %s\n",numero);
-	//printf("ultim numero: %i",partNumero);
+	//printf("Numero char: %s",numero);
+	//printf("Ultimo numero %i\n",partNumero);
+	//Verificando se o numero é par, se for, acrescenta +1
 	if (partNumero%2 == 0){
+		printf("Numero é par\n");
 		partNumero +=1;
-		//printf("novo ultimo numero %i\n",partNumero);
 		numero[tamanho-1] = partNumero+'0';
-		//numero[tamanho-1] = partNumero
 	}
-	//printf("NOvo numero impar %s",numero);
-
-	//printf("Numero: %s\n",numero);
-	//char *pnmArquivo = &nmArquivo[0];
 	numero[1] = '.';
-	numero[tamanho-1]= '\O';
+	numero[tamanho-1]= NULL;
 	pnumeroIni = pNumero;
 	
-	char *e;
-	printf("Numero 1: %s\n",numero);
+	char *e = NULL;
+	//Covnertendo char para long double
 	numeroFinal = strtold(pnumeroIni,&e);
-	printf("Numero 2: %s\n",numero);
-	return &numeroFinal;
+	printf("Valor do char: %s\nValor do Long Double: %.17Lf\n",numero,numeroFinal);
+	return numeroFinal;
 }
 
-int testeConversao(){
+/*int testeConversao(){
 	char *string;
    char *stopstring;
    long double x;
@@ -61,4 +60,16 @@ int testeConversao(){
 
   return 0;
 
-}
+}*/
+
+/*int modBI(char num, int a) 
+{ 
+    // Initialize result 
+    int res = 0; 
+  
+    // One by one process all digits of 'num' 
+    for (int i = 0; i < num.length(); i++) 
+         res = (res*10 + (int)num[i] - '0') %a; 
+  
+    return res; 
+} */

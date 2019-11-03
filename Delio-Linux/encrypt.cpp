@@ -9,7 +9,19 @@ int criptografar(){
 	return 0;
 }
 
-int gerarChave(){
+long double gerarChavePublica(long double p, long double q){
+	printf("Gerar chave publica..\n");
+	long double n;
+	n = p * q;
+	return n;
+	
+}
+
+void gerarChavePrivada(){
+	printf("Gerar chave privada..\n");
+}
+
+/*int gerarChave(){
 	long double *numBig_1;
 	numBig_1 = gerarNumeroAleatorio(100);
 	printf("O numero � %c",numBig_1);
@@ -23,7 +35,7 @@ int gerarChave(){
 		//printf("numero %Lf\n", pow(10,100) + numRand);
 	}
 	return 1;
-}
+}*/
 
 /* Um dos otimizadores do teste de primalidade � checar se o n�mero � par */
 /* Verificar se inv�s de retornar true ou false, apenas soma mais um e retorna */

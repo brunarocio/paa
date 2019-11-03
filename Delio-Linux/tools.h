@@ -5,5 +5,6 @@ void gravarArquivo(char *info);
 
 void quebraBruta();
 
-long double *gerarNumeroAleatorio(int tamanho);
-int testeConversao();
+long double gerarNumeroAleatorio(int tamanho);
+//int testeConversao();
+//int modBI(char num, int a);

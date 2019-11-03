@@ -1,10 +1,10 @@
 all: test demo
 
 test: BigInt.o BigInt_test.o test.o
-	gcc -lm -o test BigInt.o BigInt_test.o test.o
+	gcc -o test BigInt.o BigInt_test.o test.o -lm
 
 demo: demo.o BigInt.o
-	gcc -lm -o demo demo.c BigInt.o
+	gcc -o demo demo.c BigInt.o -lm
 	    
 BigInt.o: BigInt.c BigInt.h
 	gcc -c BigInt.c

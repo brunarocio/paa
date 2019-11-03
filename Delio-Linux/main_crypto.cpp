@@ -1,15 +1,20 @@
 #include <iostream>
 #include <string.h>
+#include <stdio.h>
+#include <time.h>
+#include <unistd.h>
 #include "tools.h"
 #include "encrypt.h"
 #include "decrypt.h"
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
-//comando programa -c 'arquivo a ser encriptado' (será gerado o arquivo a ser encriptado )
-//comando programa -d 'arquivo a ser decriptado' (será gerado o arquivo a ser decriptado)
+//comando programa -c 'arquivo a ser encriptado' (serï¿½ gerado o arquivo a ser encriptado )
+//comando programa -d 'arquivo a ser decriptado' (serï¿½ gerado o arquivo a ser decriptado)
 
 int main(int argc, char *argv[]) {
-	long double *numero;
+	long double num1, num2, chavep;
+	//numero = &numero2;
+	int i,j = 0;
 	if (argc != 2){
 		printf ("ERRO: Numero de parametros %s <d ou c> <arquivo>\n", argv[0]);
 		exit (1);
@@ -19,15 +24,33 @@ int main(int argc, char *argv[]) {
 		//op?oes para criptografia
 		printf("======== Op??o criptografar =========\n");
 		printf("Passo 1 - Gerando a chave\n");
-		//gerando numero aleatório e atribuindo a uma variavel
-		testeConversao();
-		numero = gerarNumeroAleatorio(100);
-		printf("passou daqui..\n");
-		if (verificaPrimalidade(*numero)){
-			printf("numero é primo");
-		} else{
-			printf("Numero não é primo");
+		//Gerando numero aleatï¿½rio e atribuindo a uma variavel
+		printf("1.1-Gerando numero aleatÃ³rio..\n");
+		num1 = gerarNumeroAleatorio(55);
+		
+		printf("Numero gerado: %Lf\n",num1);
+		//Verifica primalidade
+		printf("1.2-Verificando primalidade do nÃºmero..\n");
+		while (!(verificaPrimalidade(num1))){
+			num1 = gerarNumeroAleatorio(55);
+			printf("1 - Tentativa %i: Numero %.19Lf nÃ£o Ã© primo\n",i,num1);
+			sleep(1);
+			i++;
 		}
+		printf("Encontrado primeiro numero primo..%.17Lf\n",num1);
+		num2 = gerarNumeroAleatorio(55);
+		while (!(verificaPrimalidade(num2))){
+			num2 = gerarNumeroAleatorio(55);
+			printf("2 - Tentativa %i: Numero %.19Lf nÃ£o Ã© primo\n",j,num1);
+			sleep(1);
+			j++;
+		}
+		printf("Encontrado segundo numero primo..%.17Lf\n",num2);
+		chavep = gerarChavePublica(num1,num2);
+		printf("Numero primo 1: %.17Lf\nNumero primo 2: %.17Lf\n",num1,num2);
+		printf("Chave publica: %.20Lf\n",chavep);
+		gerarChavePrivada();
+
 		printf("Passo 2 - Criptografando o arquivo\n");
 		printf("=====================================\n");
 		int chave = 1;	//gerarChave();
@@ -39,14 +62,14 @@ int main(int argc, char *argv[]) {
 		gravarArquivo(pInformacao);
 		printf("Arquivo gravado com sucesso!\n");
 		printf("Gerando numero primo da ordem 10^100\n");
-		printf("Verificando se o numero é primo ou não\n");
+		printf("Verificando se o numero ï¿½ primo ou nï¿½o\n");
 		printf("Criptografando arquivo..\n");
 		
 	}
 	else if (strcmp(argv[1],"d")==0){
 		//opcoes para descriptografia
 		printf("Op??o descriptografar\n");
-		printf("Tentando quebrar a chave por força bruta..\n");
+		printf("Tentando quebrar a chave por forï¿½a bruta..\n");
 		printf("Quebrando a chave utiliznado o algoritmo xxx\n");
 	}
 	else {
