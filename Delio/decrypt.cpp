@@ -40,7 +40,7 @@ long double PollardRho(long double num){ //recebe o randomico gerado
         res = fmodl((x * x + 1),num);
         fator = mdc((y - res), num); //calcula o fator m�nimo de divis�o entre os numeros
         if (fator != 1 && fator != num)
-        	printf("Fator %d\n", fator);
+        	printf("Fator %ld\n", fator);
 		if (i == k ){
 			y = res;
 			k = 2 * k;
