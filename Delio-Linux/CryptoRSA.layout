@@ -5,8 +5,8 @@ TopLine=1
 LeftChar=1
 [Editors]
 <<<<<<< HEAD
-Order=1,2,3,4,0,7,6,5
-Focused=5
+Order=1,2,3,4,0,7,6
+Focused=1
 [Editor_0]
 CursorCol=8
 CursorRow=23
@@ -18,8 +18,6 @@ CursorRow=4
 =======
 Order=1,2,3,4,5,0,8,7,6
 Focused=4
-TopLine=1
-LeftChar=1
 [Editor_0]
 CursorCol=15
 CursorRow=10
@@ -34,7 +32,7 @@ LeftChar=1
 [Editor_3]
 CursorCol=2
 CursorRow=10
-TopLine=9
+TopLine=8
 LeftChar=1
 [Editor_4]
 <<<<<<< HEAD
@@ -49,7 +47,7 @@ LeftChar=1
 [Editor_5]
 CursorCol=1
 CursorRow=20
-TopLine=4
+TopLine=1
 LeftChar=1
 [Editor_8]
 CursorCol=20
@@ -58,9 +56,9 @@ TopLine=1
 LeftChar=1
 [Editor_6]
 <<<<<<< HEAD
-CursorCol=1
-CursorRow=16
-TopLine=16
+CursorCol=26
+CursorRow=39
+TopLine=1
 LeftChar=1
 [Editor_7]
 CursorCol=20
