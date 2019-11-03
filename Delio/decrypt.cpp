@@ -28,7 +28,8 @@ long double mdc(long double a, long double b)
 //Implementar Pollard Rho, pg 709 Cormen
 long double PollardRho(long double num){ //recebe o randomico gerado
 	int i = 1, k = 2;
-	long double x = 23478629; //tem que come�ar a testar de algum lugar, ver qual o melhor inicio
+	//long double x = 23478629; //tem que come�ar a testar de algum lugar, ver qual o melhor inicio
+	long double x = (fmodl(rand(),(num-2)))+2;
 	long double y = num; //armazena o valor original na primeira itera��o, nas pr�ximas vai armazenar o calculado
 	long double fator, res; 
 
