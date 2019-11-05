@@ -22,6 +22,7 @@ void gravarArquivoCifrado(char *info){
 }
 
 char cifraMensagem(char *mensagem){
+
 	printf("Teste");
 	return printf("mensagem cifrada com sucesso! %s\n",*mensagem);
 }
@@ -36,10 +37,13 @@ char codificarMensagem(){
 	msgOriginal = (char *)malloc(100);
 	msgCifrada = (char *)malloc(100);
 	char msgs[] = "495849739483948394839476";
+	//char *texto = 
 	char *pMsgs = &msgs[0];
-	msgOriginal[0] = "049473983908943593449384398";
-	gravarArquivo(pMsgs);
-	return printf("a\n");
+	msgOriginal[0] = 'a';
+	int x = msgOriginal[0];
+	gravarArquivo(msgs);
+	//cifraMensagem(msgs[0]);
+	return printf("a :%i\n",x);
 }
 
 
@@ -49,14 +53,36 @@ char codificarMensagem(){
 char codificarString(char *mensagem){
 	printf("codificando mensagem\n");
 	int i = 0;
+	int numAsci;
 	char teste[100];
 	char *testando = &teste[0];
 	char strcodificada[100];
 	FILE *arqCifrado;
-	arqCifrado = fopen("arqcifrado","a");
-	while(mensagem[i] != '\n'){
-		testando = dicionario('i',mensagem[i]);
-		
+	//arqCifrado = fopen("arqcifrado","w");
+	//fputc('\0',arqCifrado);
+	//fclose(arqCifrado);
+	
+	while(mensagem[i] != NULL){
+		//testando = dicionario('i',mensagem[i]);
+		//numAsci = mensagem[i]
+		//printf("Mensagem: %i\n",numAsci)
+		printf("mensagem: %c\n",mensagem[i]);
+		numAsci = mensagem[i];
+		//char frase[3] = (char*)numAsci;
+		printf("Mensagem codificada: %i\n",numAsci);
+		//char frase[] = "xxx";
+		//frase[0]= numAsci + '0';
+		//puts(frase);
+		arqCifrado = fopen("arqcifrado","a");
+		char frase[3];
+		sprintf(frase,"%d",numAsci);
+		printf("teste: %s",frase);
+		fputc('\n',arqCifrado);
+		fputs(frase,arqCifrado);
+		//fputc(numAsci,arqCifrado);
+		//fputs("\n",arqCifrado);
+
+		fclose(arqCifrado);
 		//gravarArquivo(dicionario('i',mensagem[i]));
 		//gravarArquivoCifrado(dicionario('i',mensagem[i]));
 		//strcodificada[i*2] = 
