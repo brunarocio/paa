@@ -98,10 +98,10 @@ long double quebraForcaBruta(long double num) {
 	return 0;
 }
 
-int main(){
+/*int main(){
 
     quebraForcaBruta(98764321234);
 
     Return 0;
-}
+}*/
 
