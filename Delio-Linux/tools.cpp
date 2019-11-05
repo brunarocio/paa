@@ -12,6 +12,94 @@ void gravarArquivo(char *info){
 	fprintf(fmat,info);
 	fclose(fmat);
 }
+void gravarArquivoCifrado(char *info){
+	//char filename[100];
+	//filename = ('teste');
+	FILE *fmat;
+	fmat = fopen("arqcifrado.txt", "w");
+	fprintf(fmat,info);
+	fclose(fmat);
+}
+
+char cifraMensagem(char *mensagem){
+	printf("Teste");
+	return printf("mensagem cifrada com sucesso! %s\n",*mensagem);
+}
+
+char decifraMensagem(char *mensagem){
+
+	return printf("Mensagem decifrada com sucesso!\n");
+}
+
+char codificarMensagem(){
+	char *msgOriginal, *msgCifrada;
+	msgOriginal = (char *)malloc(100);
+	msgCifrada = (char *)malloc(100);
+	char msgs[] = "495849739483948394839476";
+	char *pMsgs = &msgs[0];
+	msgOriginal[0] = "049473983908943593449384398";
+	gravarArquivo(pMsgs);
+	return printf("a\n");
+}
+
+
+
+
+
+char codificarString(char *mensagem){
+	printf("codificando mensagem\n");
+	int i = 0;
+	char teste[100];
+	char *testando = &teste[0];
+	char strcodificada[100];
+	FILE *arqCifrado;
+	arqCifrado = fopen("arqcifrado","a");
+	while(mensagem[i] != '\n'){
+		testando = dicionario('i',mensagem[i]);
+		
+		//gravarArquivo(dicionario('i',mensagem[i]));
+		//gravarArquivoCifrado(dicionario('i',mensagem[i]));
+		//strcodificada[i*2] = 
+		//fprintf(arqCifrado,teste);
+		//fputc(mensagem[i],arqCifrado);
+		//fputc('\n',arqCifrado);
+		i++;
+	}
+	//printf("teste: %s",*testando);
+	printf("passou por aqui..\n");
+	//fclose(arqCifrado);
+	return *strcodificada;
+}
+
+char *dicionario(char opcao, char msg){
+	//Haverao 2 opções inverter e reverter (inverter dará a cada caracter um número hexadecimal de 2 posições)
+	//char retorno;
+	char vet[] = "00";
+	char *pVet = &vet[0];
+	if (opcao = 'i'){
+		switch (msg){
+			case '1':
+				printf("01\n");
+				//*vet = "01";
+				pVet = "01";
+				return pVet;
+				break;
+			case '2':
+				printf("02\n");
+				break;
+			case '3':
+				printf("03\n");
+				break;
+			default:
+				printf("99\n");
+				break;
+		}
+
+
+	} else if (opcao = 'r'){
+
+	}
+}
 
 
 long double gerarNumeroAleatorio(int tamanho){
@@ -25,6 +113,11 @@ long double gerarNumeroAleatorio(int tamanho){
 	srand(time(NULL));
 	for(int i = 0; i<tamanho;i++){
 		partNumero = rand() % 10;
+		/*if (i == 0){
+			if (partNumero < 3){
+				partNumero = 3;
+			}
+		}*/
 		numero[i] = partNumero+'0';
 		//printf("Numero %i: %i | ",i,partNumero);
 	}
@@ -36,7 +129,7 @@ long double gerarNumeroAleatorio(int tamanho){
 		partNumero +=1;
 		numero[tamanho-1] = partNumero+'0';
 	}
-	numero[1] = '.';
+	//numero[10] = '.';
 	numero[tamanho-1]= NULL;
 	pnumeroIni = pNumero;
 	

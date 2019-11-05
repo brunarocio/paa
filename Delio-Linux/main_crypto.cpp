@@ -14,13 +14,41 @@
 int main(int argc, char *argv[]) {
 	long double num1, num2, chavep;
 	//numero = &numero2;
-	int i,j = 0;
-	if (argc != 2){
+	int i = 0;
+	int j = 0;
+	int k = 0;
+	long double n,e;
+	char mensagem[100];
+	char msgCifrada[200];
+	FILE *file;
+	FILE *arqCifrado;
+	if (argc != 3){
 		printf ("ERRO: Numero de parametros %s <d ou c> <arquivo>\n", argv[0]);
 		exit (1);
 	}
 	//char opcao = *(argv[1]);
+			
+		//Leitura arquivo
+		
 	if (strcmp(argv[1],"c")==0){
+		file = fopen(argv[2], "r");
+		//file = fopen("arqcifrado","w");
+		//fprintf(arqCifrado,"");
+		//fclose(arqCifrado);
+		if (file == NULL){
+			printf("Arquivo não foi encontrado!\n");
+			return 0;
+		}
+		while (fgets(mensagem,100,file) != NULL){
+			printf("%s",mensagem);
+			//msgCifrada += 
+			codificarString(mensagem);
+			k++;
+			
+		}
+		printf("Mensagem cifrada: %s",msgCifrada);
+		//fscanf(file,);
+		fclose(file);	
 		//op?oes para criptografia
 		printf("======== Op??o criptografar =========\n");
 		printf("Passo 1 - Gerando a chave\n");
@@ -32,24 +60,30 @@ int main(int argc, char *argv[]) {
 		//Verifica primalidade
 		printf("1.2-Verificando primalidade do número..\n");
 		while (!(verificaPrimalidade(num1))){
-			num1 = gerarNumeroAleatorio(55);
 			printf("1 - Tentativa %i: Numero %.19Lf não é primo\n",i,num1);
+			num1 = gerarNumeroAleatorio(55);
 			sleep(1);
 			i++;
 		}
 		printf("Encontrado primeiro numero primo..%.17Lf\n",num1);
 		num2 = gerarNumeroAleatorio(55);
 		while (!(verificaPrimalidade(num2))){
+			printf("2 - Tentativa %i: Numero %.19Lf não é primo\n",j,num2);
 			num2 = gerarNumeroAleatorio(55);
-			printf("2 - Tentativa %i: Numero %.19Lf não é primo\n",j,num1);
 			sleep(1);
 			j++;
 		}
 		printf("Encontrado segundo numero primo..%.17Lf\n",num2);
 		chavep = gerarChavePublica(num1,num2);
+		n = gerarChavePublica(num1,num2);
+		e = 3;
+
+		//inserir leitura do arquivo aquiprintf()
+
 		printf("Numero primo 1: %.17Lf\nNumero primo 2: %.17Lf\n",num1,num2);
 		printf("Chave publica: %.20Lf\n",chavep);
 		gerarChavePrivada();
+
 
 		printf("Passo 2 - Criptografando o arquivo\n");
 		printf("=====================================\n");
@@ -71,6 +105,9 @@ int main(int argc, char *argv[]) {
 		printf("Op??o descriptografar\n");
 		printf("Tentando quebrar a chave por for�a bruta..\n");
 		printf("Quebrando a chave utiliznado o algoritmo xxx\n");
+	}
+	else if (strcmp(argv[1],"t")==0){
+		codificarMensagem();
 	}
 	else {
 		printf("ERRO: Op??o %s n?o definida.\nOp??es dispon?veis:\nd: para descriptografar\nc: para criptografar <arquivo>\nComando completo: CryptoRSA <opcao> <arquivo>\n", argv[1]);
