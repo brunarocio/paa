@@ -74,7 +74,7 @@ bool verificaPrimalidade(long double num){
 		return false; //n�o � primo
 	else{
 		//Teorema de Fermat para verificar primalidade
-		for (i=0;i<=30;i++){ //teste um certo numero de vezes, definir quanto
+		for (i=0;i<=5;i++){ //teste um certo numero de vezes, definir quanto
 			a = a / 2; //usa a metade do numero gerado
 			prime = fmodl(pow(a, (num-1)),  num); //se o resto for 1, entao o n�mero � primo, pois, esse deve ser o maximo divisor comum entre os n�meros 
 			
