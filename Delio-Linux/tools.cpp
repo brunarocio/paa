@@ -145,14 +145,16 @@ long double gerarNumeroAleatorio(int tamanho){
 			}
 		}*/
 		numero[i] = partNumero+'0';
-		//printf("Numero %i: %i | ",i,partNumero);
+		printf("Numero %i: %i | ",i,partNumero);
 	}
 	//printf("Numero char: %s",numero);
 	//printf("Ultimo numero %i\n",partNumero);
 	//Verificando se o numero é par, se for, acrescenta +1
+	//if (partNumero%2 != 0){
+	printf("Esse é o ultimo numero..%i\n",partNumero);
 	if (partNumero%2 == 0){
 		printf("Numero é par\n");
-		partNumero +=1;
+		partNumero ++;
 		numero[tamanho-1] = partNumero+'0';
 	}
 	//numero[10] = '.';
@@ -162,7 +164,7 @@ long double gerarNumeroAleatorio(int tamanho){
 	char *e = NULL;
 	//Covnertendo char para long double
 	numeroFinal = strtold(pnumeroIni,&e);
-	printf("Valor do char: %s\nValor do Long Double: %.17Lf\n",numero,numeroFinal);
+	printf("Valor do char:         %s\nValor do Long Double: %.Lf\n",numero,numeroFinal);
 	return numeroFinal;
 }
 

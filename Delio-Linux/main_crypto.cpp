@@ -54,15 +54,20 @@ int main(int argc, char *argv[]) {
 		printf("Passo 1 - Gerando a chave\n");
 		//Gerando numero aleat�rio e atribuindo a uma variavel
 		printf("1.1-Gerando numero aleatório..\n");
-		num1 = gerarNumeroAleatorio(55);
 		
+		num1 = gerarNumeroAleatorio(10);
+		if (verificarParImpar(num1)){
+			printf("somando 1 ao numero par..\n");
+				num1++;
+		}		
 		printf("Numero gerado: %Lf\n",num1);
 		//Verifica primalidade
 		printf("1.2-Verificando primalidade do número..\n");
 		while (!(verificaPrimalidade(num1))){
 			printf("1 - Tentativa %i: Numero %.19Lf não é primo\n",i,num1);
-			num1 = gerarNumeroAleatorio(55);
-			sleep(1);
+			num1 = num1+2;		
+			//num1 = gerarNumeroAleatorio(55);
+			//sleep(1);
 			i++;
 		}
 		printf("Encontrado primeiro numero primo..%.17Lf\n",num1);
