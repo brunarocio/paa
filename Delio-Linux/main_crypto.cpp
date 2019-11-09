@@ -71,11 +71,12 @@ int main(int argc, char *argv[]) {
 		printf("Opcao descriptografar\n");
 		descriptografar();
 		printf("Tentando quebrar a chave por forca bruta..\n");
-
+		quebraForcaBruta(chavep);
 		printf("Quebrando a chave utilizando o algoritmo Pollard Rho\n");
+		PollardRho(chavep);
 	}
 	else {
-		printf("ERRO: Op??o %s n?o definida.\nOp??es dispon?veis:\nd: para descriptografar\nc: para criptografar <arquivo>\nComando completo: CryptoRSA <opcao> <arquivo>\n", argv[1]);
+		printf("ERRO: Opcao %s nao definida.\nOpcoes disponiveis:\nd: para descriptografar\nc: para criptografar <arquivo>\nComando completo: CryptoRSA <opcao> <arquivo>\n", argv[1]);
 		return 0;
 	}
 	
