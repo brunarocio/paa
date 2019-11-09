@@ -62,15 +62,17 @@ int main(int argc, char *argv[]) {
 		gravarArquivo(pInformacao);
 		printf("Arquivo gravado com sucesso!\n");
 		printf("Gerando numero primo da ordem 10^100\n");
-		printf("Verificando se o numero � primo ou n�o\n");
+		printf("Verificando se o numero eh primo ou nao\n");
 		printf("Criptografando arquivo..\n");
 		
 	}
 	else if (strcmp(argv[1],"d")==0){
 		//opcoes para descriptografia
-		printf("Op??o descriptografar\n");
-		printf("Tentando quebrar a chave por for�a bruta..\n");
-		printf("Quebrando a chave utiliznado o algoritmo xxx\n");
+		printf("Opcao descriptografar\n");
+		descriptografar();
+		printf("Tentando quebrar a chave por forca bruta..\n");
+
+		printf("Quebrando a chave utilizando o algoritmo Pollard Rho\n");
 	}
 	else {
 		printf("ERRO: Op??o %s n?o definida.\nOp??es dispon?veis:\nd: para descriptografar\nc: para criptografar <arquivo>\nComando completo: CryptoRSA <opcao> <arquivo>\n", argv[1]);
