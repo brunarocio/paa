@@ -66,7 +66,7 @@ int main(int argc, char *argv[]) {
 		printf("1.2-Verificando primalidade do número..\n");
 		printf("Tentativas..\n");
 		while (!(verificaPrimalidade(num1))){
-			printf("1-%i-%.Lf|",i,num1);
+			printf("2 - Tentativa %i: Numero %.Lf não é primo\n",j,num1);
 			sleep(1);
 			num1 = num1+2;		
 			//num1 = gerarNumeroAleatorio(55);
