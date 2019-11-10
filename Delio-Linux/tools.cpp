@@ -12,6 +12,7 @@ void gravarArquivo(char *info){
 	fprintf(fmat,info);
 	fclose(fmat);
 }
+
 void gravarArquivoCifrado(char *info){
 	//char filename[100];
 	//filename = ('teste');
@@ -51,7 +52,7 @@ char codificarMensagem(){
 
 
 char codificarString(char *mensagem){
-	printf("codificando mensagem\n");
+	//printf("codificando mensagem\n");
 	int i = 0;
 	int numAsci;
 	char teste[100];
@@ -66,17 +67,17 @@ char codificarString(char *mensagem){
 		//testando = dicionario('i',mensagem[i]);
 		//numAsci = mensagem[i]
 		//printf("Mensagem: %i\n",numAsci)
-		printf("mensagem: %c\n",mensagem[i]);
+		//mostrar mensagemprintf("mensagem: %c\n",mensagem[i]);
 		numAsci = mensagem[i];
 		//char frase[3] = (char*)numAsci;
-		printf("Mensagem codificada: %i\n",numAsci);
+		//mostrar codificaçãoprintf("Mensagem codificada: %i\n",numAsci);
 		//char frase[] = "xxx";
 		//frase[0]= numAsci + '0';
 		//puts(frase);
 		arqCifrado = fopen("arqcifrado","a");
 		char frase[3];
 		sprintf(frase,"%d",numAsci);
-		printf("teste: %s",frase);
+		//mostrarcodificaçãoprintf("teste: %s",frase);
 		fputc('\n',arqCifrado);
 		fputs(frase,arqCifrado);
 		//fputc(numAsci,arqCifrado);
@@ -92,7 +93,7 @@ char codificarString(char *mensagem){
 		i++;
 	}
 	//printf("teste: %s",*testando);
-	printf("passou por aqui..\n");
+	//printf("passou por aqui..\n");
 	//fclose(arqCifrado);
 	return *strcodificada;
 }
@@ -132,7 +133,7 @@ long double gerarNumeroAleatorio(int tamanho){
 	long double numeroFinal;
 	long double *pNumeroFinal = NULL;
 	pNumeroFinal = &numeroFinal;
-	char numero[50];
+	char numero[10];
 	char *pNumero = &numero[0];
 	char *pnumeroIni;
 	int partNumero;
@@ -145,26 +146,27 @@ long double gerarNumeroAleatorio(int tamanho){
 			}
 		}*/
 		numero[i] = partNumero+'0';
-		printf("Numero %i: %i | ",i,partNumero);
+		//printf("Numero %i: %i | ",i,partNumero);
 	}
 	//printf("Numero char: %s",numero);
 	//printf("Ultimo numero %i\n",partNumero);
 	//Verificando se o numero é par, se for, acrescenta +1
-	//if (partNumero%2 != 0){
-	printf("Esse é o ultimo numero..%i\n",partNumero);
-	if (partNumero%2 == 0){
-		printf("Numero é par\n");
-		partNumero ++;
+	
+	if ((partNumero%2) == 0){
+	//printf("Esse é o ultimo numero..%i\n",partNumero);
+	//detectar no principal se o número é par.if (partNumero%2 == 0){
+		//printf("Numero é par\n");
+		partNumero = partNumero +1;
 		numero[tamanho-1] = partNumero+'0';
 	}
 	//numero[10] = '.';
-	numero[tamanho-1]= NULL;
+	//numero[tamanho-1]= NULL;
 	pnumeroIni = pNumero;
 	
 	char *e = NULL;
 	//Covnertendo char para long double
 	numeroFinal = strtold(pnumeroIni,&e);
-	printf("Valor do char:         %s\nValor do Long Double: %.Lf\n",numero,numeroFinal);
+	//printf("Valor do char:         %s\nValor do Long Double: %.Lf\n",numero,numeroFinal);
 	return numeroFinal;
 }
 

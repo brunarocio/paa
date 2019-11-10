@@ -32,53 +32,56 @@ int main(int argc, char *argv[]) {
 		
 	if (strcmp(argv[1],"c")==0){
 		file = fopen(argv[2], "r");
-		//file = fopen("arqcifrado","w");
-		//fprintf(arqCifrado,"");
-		//fclose(arqCifrado);
 		if (file == NULL){
 			printf("Arquivo não foi encontrado!\n");
 			return 0;
 		}
 		while (fgets(mensagem,100,file) != NULL){
-			printf("%s",mensagem);
+			//printf("%s",mensagem);
 			//msgCifrada += 
 			codificarString(mensagem);
 			k++;
 			
 		}
-		printf("Mensagem cifrada: %s",msgCifrada);
+		//printf("Mensagem cifrada: %s",msgCifrada);
 		//fscanf(file,);
 		fclose(file);	
 		//op?oes para criptografia
-		printf("======== Op??o criptografar =========\n");
+		printf("======== Opcao criptografar =========\n");
+		sleep(1);
 		printf("Passo 1 - Gerando a chave\n");
+		sleep(1);
 		//Gerando numero aleat�rio e atribuindo a uma variavel
 		printf("1.1-Gerando numero aleatório..\n");
+		sleep(1);
 		
 		num1 = gerarNumeroAleatorio(10);
-		if (verificarParImpar(num1)){
-			printf("somando 1 ao numero par..\n");
-				num1++;
-		}		
-		printf("Numero gerado: %Lf\n",num1);
+		//printf("Numero gerado: %.Lf\n",num1);
+		/*if (!verificarParImpar(num1)){
+			printf("Número é par, somando 1..\n");
+				num1 = num1+1;
+		}*/		
+		printf("Numero gerado: %.Lf\n",num1);
 		//Verifica primalidade
 		printf("1.2-Verificando primalidade do número..\n");
+		printf("Tentativas..\n");
 		while (!(verificaPrimalidade(num1))){
-			printf("1 - Tentativa %i: Numero %.19Lf não é primo\n",i,num1);
+			printf("1-%i-%.Lf|",i,num1);
+			sleep(1);
 			num1 = num1+2;		
 			//num1 = gerarNumeroAleatorio(55);
 			//sleep(1);
 			i++;
 		}
 		printf("Encontrado primeiro numero primo..%.17Lf\n",num1);
-		num2 = gerarNumeroAleatorio(55);
+		num2 = gerarNumeroAleatorio(10);
 		while (!(verificaPrimalidade(num2))){
-			printf("2 - Tentativa %i: Numero %.19Lf não é primo\n",j,num2);
+			printf("2 - Tentativa %i: Numero %.Lf não é primo\n",j,num2);
 			num2 = gerarNumeroAleatorio(55);
 			sleep(1);
 			j++;
 		}
-		printf("Encontrado segundo numero primo..%.17Lf\n",num2);
+		printf("Encontrado segundo numero primo..%.Lf\n",num2);
 		chavep = gerarChavePublica(num1,num2);
 		n = gerarChavePublica(num1,num2);
 		e = 3;
