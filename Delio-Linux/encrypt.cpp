@@ -26,10 +26,10 @@ void cifrarMensagem(char *mensagem){
 }
 
 
-long double gerarChavePrivada(long double q, long double q, long double e){
+long double gerarChavePrivada(long double p, long double q, long double e){
 	printf("Gerar chave privada..\n");
 	long double chavePrivada;
-	chavePrivada = ((2*((p-1)*(q-1)))+1)/e
+	chavePrivada = ((2*((p-1)*(q-1)))+1)/e;
 	
 	return chavePrivada;
 }

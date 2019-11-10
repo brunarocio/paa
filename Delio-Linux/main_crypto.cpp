@@ -87,7 +87,7 @@ int main(int argc, char *argv[]) {
 
 		printf("Numero primo 1: %.17Lf\nNumero primo 2: %.17Lf\n",num1,num2);
 		printf("Chave publica: %.20Lf\n",chavep);
-		gerarChavePrivada();
+		//gerarChavePrivada();
 
 
 		printf("Passo 2 - Criptografando o arquivo\n");
