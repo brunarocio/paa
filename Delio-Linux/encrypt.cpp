@@ -69,26 +69,31 @@ bool verificarParImpar(long double num){
 bool verificaPrimalidade(long double num){
 	bool bPrimo;
 	int i;
-	long double a = num; //recebe o numero gerado randomicamente
+	long double a = 3; //recebe o numero gerado randomicamente
 	long double prime;
+	long double b, c;
 	
 	if (num <= 1)
-		return true;  
+		return false;  
+
+	if (verificarParImpar(num))
+		num +=1;
 	
-	bPrimo = verificarParImpar(num);
-	if(bPrimo)
-		return false; //nao eh primo
-	else{
-		//Teorema de Fermat para verificar primalidade
-		for (i=0;i<=5;i++){ //teste um certo numero de vezes, definir quanto
-			a = a / 2; //usa a metade do numero gerado
-			prime = fmodl(pow(a, (num-1)), num); //se o resto for 1, entao o numero eh primo, pois, esse deve ser o maximo divisor comum entre os n�meros 
-			
-			if (prime != 1)
-				return false; //o numero nao eh primo, pois, o resultado diferente de 1 indica que se trata de um numero composto
-		}
+	//Teorema de Fermat para verificar primalidade
+	for (i=0;i<=5;i++){ //teste um certo numero de vezes, definir quanto
+		printf("NUM: %Lf\n",num);
+
+		a = pow(a,a);
+		b = num - 1;
+		c = pow(a, b);
+		printf("A: %Lf\n",c);
+		prime = fmodl(c, num); //se o resto for 1, entao o numero eh primo, pois, esse deve ser o maximo divisor comum entre os n�meros 
+		printf("Resultado prime %Lf\n",prime);
+		if (trunc(prime) != 1)
+			return false; //o numero nao eh primo, pois, o resultado diferente de 1 indica que se trata de um numero composto
+	}
+
+	//se chegou ao fim do laco sem sair, eh primo
+	return true; //o numero eh primo
 	
-		//se chegou ao fim do laco sem sair, eh primo
-		return true; //o numero eh primo
-	}	
 }

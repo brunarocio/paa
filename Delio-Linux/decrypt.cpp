@@ -53,6 +53,14 @@ long double PollardRho(long double num){ //recebe o randomico gerado
 	return fator;
 }
 
+void heuristicaRho(long double num){
+	long double fator;
+
+	fator = PollardRho(num);
+
+	printf("Fator com Rho:%Lf\n",fator);
+}
+
 //Calcula Fator para Forca Bruta com Fermat
 long double calcFator(long double num) {
 
