@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <math.h>
 #include "tools.h"
 
 void gravarArquivo(char *info){
@@ -166,6 +167,19 @@ long double gerarNumeroAleatorio(int tamanho){
 	numeroFinal = strtold(pnumeroIni,&e);
 	printf("Valor do char:         %s\nValor do Long Double: %.Lf\n",numero,numeroFinal);
 	return numeroFinal;
+}
+
+long double modpow(long double x, long double n, long double m) {
+
+	long double u = modpow(x, n/2, m);
+
+	if (n == 0) 
+		return (fmodl(1,m));
+	
+	u = fmodl((u*u),m);
+	if (fmodl(n,2) == 1) 
+		u = fmodl((u*x),m);
+	return u;
 }
 
 /*int testeConversao(){

@@ -55,7 +55,7 @@ int main(int argc, char *argv[]) {
 		//Gerando numero aleat�rio e atribuindo a uma variavel
 		printf("1.1-Gerando numero aleatório..\n");
 		
-		num1 = gerarNumeroAleatorio(10);
+		num1 = gerarNumeroAleatorio(4);
 		if (verificarParImpar(num1)){
 			printf("somando 1 ao numero par..\n");
 				num1++;
@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
 			i++;
 		}
 		printf("Encontrado primeiro numero primo..%.17Lf\n",num1);
-		num2 = gerarNumeroAleatorio(55);
+		num2 = gerarNumeroAleatorio(4);
 		while (!(verificaPrimalidade(num2))){
 			printf("2 - Tentativa %i: Numero %.19Lf não é primo\n",j,num2);
 			num2 = gerarNumeroAleatorio(55);
@@ -110,9 +110,9 @@ int main(int argc, char *argv[]) {
 		printf("Opcao descriptografar\n");
 		descriptografar();
 		printf("Tentando quebrar a chave por forca bruta..\n");
-		quebraForcaBruta(chavep);
+		///quebraForcaBruta(chavep);
 		printf("Quebrando a chave utilizando o algoritmo Pollard Rho\n");
-		PollardRho(chavep);
+		//PollardRho(chavep);
 	}
 	else if (strcmp(argv[1],"t")==0){
 		codificarMensagem();

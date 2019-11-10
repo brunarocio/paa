@@ -14,3 +14,5 @@ char codificarString(char *mensagem);
 char codificarMensagem();
 char cifraMensagem(char *mensagem);
 char decifraMensagem(char *mensagem);
+
+long double modpow(long double x, long double n, long double m) ;
