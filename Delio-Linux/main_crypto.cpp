@@ -43,11 +43,11 @@ int main(int argc, char *argv[]) {
 		printf("1.1-Gerando numero aleatório..\n");
 		sleep(1);
 		
-		num1 = gerarNumeroAleatorio(4);
-		if (verificarParImpar(num1)){
+		num1 = gerarNumeroAleatorio(1);
+		/*if (verificarParImpar(num1)){
 			printf("somando 1 ao numero par..\n");
 				num1++;
-		}		
+		}*/		
 		printf("Numero gerado: %Lf\n",num1);
 		//Verifica primalidade
 		printf("1.2-Verificando primalidade do número..\n");
@@ -61,7 +61,7 @@ int main(int argc, char *argv[]) {
 			i++;
 		}
 		printf("Encontrado primeiro numero primo..%.17Lf\n",num1);
-		num2 = gerarNumeroAleatorio(4);
+		num2 = gerarNumeroAleatorio(1);
 		while (!(verificaPrimalidade(num2))){
 			printf("2 - Tentativa %i: Numero %.Lf não é primo\n",j,num2);
 			num2 = gerarNumeroAleatorio(55);

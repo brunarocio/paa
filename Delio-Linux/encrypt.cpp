@@ -72,6 +72,12 @@ bool verificaPrimalidade(long double num){
 	long double a = 3; //recebe o numero gerado randomicamente
 	long double prime;
 	long double b, c;
+	unsigned long int int_num = num;
+	unsigned long int int_a=a;
+	unsigned long int int_b=num-1;
+	unsigned long int int_c=0;
+	unsigned long int int_prime = prime;
+	printf("Valor de\nA:%li\nB:%li\nC:%li\nPrime:%li\n",int_a,int_b,int_c,int_prime);
 	
 	if (num <= 1)
 		return false;  
@@ -81,16 +87,30 @@ bool verificaPrimalidade(long double num){
 	
 	//Teorema de Fermat para verificar primalidade
 	for (i=0;i<=5;i++){ //teste um certo numero de vezes, definir quanto
-		printf("NUM: %Lf\n",num);
+		int_c = pow(int_a,int_b);
+		printf("Numero gerado potencia: %li\n",int_c);
+		int_prime = fmodl(int_c,int_num);
+		printf("Numero primo: %li\n",int_prime);
+		/*printf("NUM: %Lf\n",num);
+		int_c = pow(int_a,int_b);
+		printf("Valor de\nA:%Li\nB:%Li\nC:%i\nNum: %Li\nPrime:%Li\n",int_a,int_b,int_c,int_num,int_prime);
 
 		a = pow(a,a);
 		b = num - 1;
 		c = pow(a, b);
 		printf("A: %Lf\n",c);
 		prime = fmodl(c, num); //se o resto for 1, entao o numero eh primo, pois, esse deve ser o maximo divisor comum entre os n�meros 
+		int_prime = fmodl(int_c,int_num);
+		printf("numero intprime? %i",int_prime);
+		printf("Valor de\nA:%Li\nB:%Li\nC:%i\nNum: %Li\nPrime:%Li\n",int_a,int_b,int_c,int_num,int_prime);
+		printf("Resultado de %i",int_c);
+		printf("Resultado prime de Int: %i\n",int_prime);
 		printf("Resultado prime %Lf\n",prime);
-		if (trunc(prime) != 1)
+		if (trunc(int_prime) != 1)
 			return false; //o numero nao eh primo, pois, o resultado diferente de 1 indica que se trata de um numero composto
+		*/
+		if (trunc(int_prime) != 1)
+			return false;
 	}
 
 	//se chegou ao fim do laco sem sair, eh primo
