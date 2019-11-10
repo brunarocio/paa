@@ -38,7 +38,7 @@ void gerarChavePrivada(){
 }*/
 
 /* Um dos otimizadores do teste de primalidade � checar se o n�mero � par */
-/* Verificar se inv�s de retornar true ou false, apenas soma mais um e retorna */
+/* Verificar se inves de retornar true ou false, apenas soma mais um e retorna */
 bool verificarParImpar(long double num){
 	long double r = 0;
 	
@@ -65,18 +65,18 @@ bool verificaPrimalidade(long double num){
 	
 	bPrimo = verificarParImpar(num);
 	if(bPrimo)
-		return false; //n�o � primo
+		return false; //nao eh primo
 	else{
 		//Teorema de Fermat para verificar primalidade
 		for (i=0;i<=5;i++){ //teste um certo numero de vezes, definir quanto
 			a = a / 2; //usa a metade do numero gerado
-			prime = fmodl(pow(a, (num-1)),  num); //se o resto for 1, entao o n�mero � primo, pois, esse deve ser o maximo divisor comum entre os n�meros 
+			prime = fmodl(pow(a, (num-1)), num); //se o resto for 1, entao o numero eh primo, pois, esse deve ser o maximo divisor comum entre os n�meros 
 			
 			if (prime != 1)
-				return false; //o n�mero n�o � primo, pois, o resultado diferente de 1 indica que se trata de um n�mero composto
+				return false; //o numero nao eh primo, pois, o resultado diferente de 1 indica que se trata de um numero composto
 		}
 	
-		//se chegou ao fim do la�o sem sair, � primo
-		return true; //o n�mero � primo
+		//se chegou ao fim do laco sem sair, eh primo
+		return true; //o numero eh primo
 	}	
 }
