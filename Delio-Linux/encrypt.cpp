@@ -4,7 +4,7 @@
 #include "tools.h"
 #include "encrypt.h"
 
-int criptografar(long double mensagem, long double n, long double e){
+long double criptografar(long double mensagem, long double n, long double e){
 	printf("criptografar\n");
 	long double cryptoMensagem;
 	cryptoMensagem = fmodl(pow(mensagem, (e)), n); 
@@ -19,14 +19,8 @@ long double gerarChavePublica(long double p, long double q){
 	
 }
 
-void cifrarMensagem(char *mensagem){
-	//while(mensagem != '\0')`{
 
-	//}
-}
-
-
-long double gerarChavePrivada(long double p, long double q, long double e){
+long double gerarChavePrivada(long double p, long double q, int e){
 	printf("Gerar chave privada..\n");
 	long double chavePrivada;
 	chavePrivada = ((2*((p-1)*(q-1)))+1)/e;

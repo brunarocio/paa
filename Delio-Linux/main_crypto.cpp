@@ -17,11 +17,13 @@ int main(int argc, char *argv[]) {
 	int i = 0;
 	int j = 0;
 	int k = 0;
-	long double n,e;
+	long double n,e,d;
 	char mensagem[100];
 	char msgCifrada[200];
 	FILE *file;
 	FILE *arqCifrado;
+	FILE *arqPrivateKey;
+	FILE *arqPublicKey;
 	if (argc != 3){
 		printf ("ERRO: Numero de parametros %s <d ou c> <arquivo>\n", argv[0]);
 		exit (1);
@@ -31,21 +33,7 @@ int main(int argc, char *argv[]) {
 		//Leitura arquivo
 		
 	if (strcmp(argv[1],"c")==0){
-		file = fopen(argv[2], "r");
-		if (file == NULL){
-			printf("Arquivo não foi encontrado!\n");
-			return 0;
-		}
-		while (fgets(mensagem,100,file) != NULL){
-			//printf("%s",mensagem);
-			//msgCifrada += 
-			codificarString(mensagem);
-			k++;
 			
-		}
-		//printf("Mensagem cifrada: %s",msgCifrada);
-		//fscanf(file,);
-		fclose(file);	
 		//op?oes para criptografia
 		printf("======== Opcao criptografar =========\n");
 		sleep(1);
@@ -66,7 +54,7 @@ int main(int argc, char *argv[]) {
 		printf("1.2-Verificando primalidade do número..\n");
 		printf("Tentativas..\n");
 		while (!(verificaPrimalidade(num1))){
-			printf("2 - Tentativa %i: Numero %.Lf não é primo\n",j,num1);
+			printf("1 - Tentativa %i: Numero %.Lf não é primo\n",i,num1);
 			sleep(1);
 			num1 = num1+2;		
 			//num1 = gerarNumeroAleatorio(55);
@@ -82,15 +70,40 @@ int main(int argc, char *argv[]) {
 			j++;
 		}
 		printf("Encontrado segundo numero primo..%.Lf\n",num2);
-		chavep = gerarChavePublica(num1,num2);
+		
+		//Gerar chave publica e privada.
 		n = gerarChavePublica(num1,num2);
-		e = 3;
+		//Incluir chave publica em uma arquivo;
+		arqPublicKey = fopen("public.key","w");
+		fclose(arqPublicKey);
+		e = gerarE();
+		d = gerarChavePrivada(num1,num2,e);
+		arqPrivateKey = fopen("private.key","w");
+
+		fclose(arqPrivateKey);
+		//Cifrar arquivo para, em seguida, criptografar
+		file = fopen(argv[2], "r");
+		if (file == NULL){
+			printf("Arquivo não foi encontrado!\n");
+			return 0;
+		}
+		while (fgets(mensagem,100,file) != NULL){
+			printf("%s",mensagem);
+			codificarString(mensagem);
+			k++;
+			
+		}
+		//printf("Mensagem cifrada: %s",msgCifrada);
+		//fscanf(file,);
+		fclose(file);
+		
+		//long double gerarChavePublica(num1,)
+
 
 		//inserir leitura do arquivo aquiprintf()
 
 		printf("Numero primo 1: %.17Lf\nNumero primo 2: %.17Lf\n",num1,num2);
 		printf("Chave publica: %.20Lf\n",chavep);
-		//gerarChavePrivada();
 
 
 		printf("Passo 2 - Criptografando o arquivo\n");
