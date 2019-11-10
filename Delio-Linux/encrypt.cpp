@@ -12,9 +12,15 @@ int criptografar(){
 long double gerarChavePublica(long double p, long double q){
 	printf("Gerar chave publica..\n");
 	long double n;
-	n = p * q;
+	n = (p * q);
 	return n;
 	
+}
+
+void cifrarMensagem(char *mensagem){
+	//while(mensagem != '\0')`{
+
+	//}
 }
 
 void gerarChavePrivada(){
