@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <math.h>
 #include "decrypt.h"
-#include "BigInt.h"
+#include "BigInt.hpp"
+#include "encrypt.h"
 
 
 bool descriptografar(){
@@ -20,7 +21,7 @@ BigInt mdc(BigInt a, BigInt b)
 
     printf("Maximo Divisor Comum\n");
     while (b != 0) {
-        resto = fmodl(a,b); //divisao inteira
+        resto = a%b; //divisao inteira
         a = b;
         b = resto;
     }
@@ -31,7 +32,7 @@ BigInt mdc(BigInt a, BigInt b)
 //Implementar Pollard Rho, pg 709 Cormen
 BigInt PollardRho(BigInt num){ //recebe o randomico gerado
 	int i = 1, k = 2;
-	BigInt x = (fmodl(rand(),(num-2)))+2;
+	BigInt x = ((rand()%(num-2)))+2;
 	BigInt y = num; //armazena o valor original na primeira iteracao, nas proximas vai armazenar o calculado
 	BigInt fator, res;
 
@@ -40,7 +41,7 @@ BigInt PollardRho(BigInt num){ //recebe o randomico gerado
     do  {
 		printf("Iteracao %d\n", i);
         i++;
-        res = fmodl((x * x + 1),num);
+        res = (x * x + 1)%num;
         fator = mdc((y - res), num); //calcula o fator maximo de divisao entre os numeros
         if (fator != 1 && fator != num)
         	printf("Fator %i\n", fator);
@@ -70,13 +71,14 @@ BigInt calcFator(BigInt num) {
 	do {
 		i += j;
 		k = (int) sqrt((double)i);
-		j += ((!j)?1:2);
+		j += (verificarParImpar(j)?2:1) //Se impar soma 2, se par soma 1
 	} while (i-k*k>0);
 
-	k += (j-1)<<1;
+	j -= 1;
+	k += j << 1; //BigInt << Int - se nao, não movimenta o bit
 	num /= k;
 
-	return (num>k?k:num);
+	return (num>k?k:num); //condição ternaria se num > k então k, se não num
 }
 
 
