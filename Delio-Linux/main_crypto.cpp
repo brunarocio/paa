@@ -6,6 +6,7 @@
 #include "tools.h"
 #include "encrypt.h"
 #include "decrypt.h"
+#include "BigInt.hpp"
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 //comando programa -c 'arquivo a ser encriptado' (ser� gerado o arquivo a ser encriptado )
@@ -131,6 +132,16 @@ int main(int argc, char *argv[]) {
 	}
 	else if (strcmp(argv[1],"t")==0){
 		codificarMensagem();
+	}
+	else if (strcmp(argv[1],"b")==0){
+		printf("Teste bing int\n");
+		BigInt big1 = 3, big2;
+		big2 = "231254548748541561451484751451515";
+		big2 = big_random(5);
+		std::cout << big1 * big2 * 1 << "\n";
+		std::cout << big2 * 1 << "\n";
+		printf("Big: %i",big2);
+
 	}
 	else {
 		printf("ERRO: Opcao %s nao definida.\nOpcoes disponiveis:\nd: para descriptografar\nc: para criptografar <arquivo>\nComando completo: CryptoRSA <opcao> <arquivo>\n", argv[1]);
