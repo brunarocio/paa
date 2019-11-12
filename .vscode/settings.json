@@ -3,5 +3,6 @@
         "origin",
         "upstream",
         "https://github.com/brunarocio/paa.git"
-    ]
+    ],
+    "python.pythonPath": "C:\\Users\\delio\\AppData\\Local\\Programs\\Python\\Python38\\python.exe"
 }
