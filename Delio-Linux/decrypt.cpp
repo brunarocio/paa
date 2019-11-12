@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <math.h>
 #include "decrypt.h"
+#include "BigInt.hpp"
+#include "encrypt.h"
 
 
 bool descriptografar(){
@@ -13,13 +15,13 @@ bool descriptografar(){
 Funcao para encontrar o maximo divisor comum entre os parametros a e b
 Euclides Estendido
 **/
-long double mdc(long double a, long double b)
+BigInt mdc(BigInt a, BigInt b)
 {
-    long double resto;
+    BigInt resto;
 
     printf("Maximo Divisor Comum\n");
     while (b != 0) {
-        resto = fmodl(a,b); //divisao inteira
+        resto = a%b; //divisao inteira
         a = b;
         b = resto;
     }
@@ -28,21 +30,21 @@ long double mdc(long double a, long double b)
 
 
 //Implementar Pollard Rho, pg 709 Cormen
-long double PollardRho(long double num){ //recebe o randomico gerado
+BigInt PollardRho(BigInt num){ //recebe o randomico gerado
 	int i = 1, k = 2;
-	long double x = (fmodl(rand(),(num-2)))+2;
-	long double y = num; //armazena o valor original na primeira iteracao, nas proximas vai armazenar o calculado
-	long double fator, res;
+	BigInt x = ((rand()%(num-2)))+2;
+	BigInt y = num; //armazena o valor original na primeira iteracao, nas proximas vai armazenar o calculado
+	BigInt fator, res;
 
 	printf("Pollard Rho");
 
     do  {
 		printf("Iteracao %d\n", i);
         i++;
-        res = fmodl((x * x + 1),num);
+        res = (x * x + 1)%num;
         fator = mdc((y - res), num); //calcula o fator maximo de divisao entre os numeros
         if (fator != 1 && fator != num)
-        	printf("Fator %Lf\n", fator);
+        	printf("Fator %i\n", fator);
 		if (i == k ){
 			y = res;
 			k = 2 * k;
@@ -53,37 +55,38 @@ long double PollardRho(long double num){ //recebe o randomico gerado
 	return fator;
 }
 
-void heuristicaRho(long double num){
-	long double fator;
+void heuristicaRho(BigInt num){
+	BigInt fator;
 
 	fator = PollardRho(num);
 
-	printf("Fator com Rho:%Lf\n",fator);
+	printf("Fator com Rho:%i\n",fator);
 }
 
 //Calcula Fator para Forca Bruta com Fermat
-long double calcFator(long double num) {
+BigInt calcFator(BigInt num) {
 
-	long double i = num, j = 0, k = 0;
+	BigInt i = num, j = 0, k = 0;
 
 	do {
 		i += j;
 		k = (int) sqrt((double)i);
-		j += ((!j)?1:2);
+		j += (verificarParImpar(j)?2:1) //Se impar soma 2, se par soma 1
 	} while (i-k*k>0);
 
-	k += j;
+	j -= 1;
+	k += j << 1; //BigInt << Int - se nao, não movimenta o bit
 	num /= k;
 
-	return (num>k?k:num);
+	return (num>k?k:num); //condição ternaria se num > k então k, se não num
 }
 
 
 /* Fatoracao de Fermat
    Se n eh primo, a-b = 1, a+b=n; */
-long double bruteForce(long double num) {
+BigInt bruteForce(BigInt num) {
 
-	long double p = 1, q = 1;
+	BigInt p = 1, q = 1;
 
 	printf("Tentando quebrar com metodo de Fermat\n");
 	do {
@@ -97,16 +100,16 @@ long double bruteForce(long double num) {
 		num /= p;
 
 		if (p != 1)
-			printf ("%Lf\n", p);
+			printf ("%i\n", p);
 		else
-			printf ("%Lf\n", num);
+			printf ("%i\n", num);
 	} while (p > 1);
 
 	printf("Fatoracao completa\n");
 	return 0;
 }
 
-bool quebraForcaBruta(long double num){
-	
+bool quebraForcaBruta(BigInt num){
+
 	bruteForce(num);
 }

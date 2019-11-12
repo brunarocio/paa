@@ -9,6 +9,6 @@ long double gerarChavePrivada(long double p, long double q, int e);
 
 int gerarE();
 
-bool verificaPrimalidade(long double num);
+bool verificaPrimalidade(BigInt num);
 
-bool verificarParImpar(long double num);
+bool verificarParImpar(BigInt num);

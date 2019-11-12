@@ -3,6 +3,6 @@
 
 bool descriptografar();
 
-bool quebraForcaBruta(long double num);
+bool quebraForcaBruta(BigInt num);
 
-long double PollardRho(long double num);
+long double PollardRho(BigInt num);
