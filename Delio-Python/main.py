@@ -1,10 +1,21 @@
 from random import *
 import sys
+
+#verificar parametros informados
 param = sys.argv[1:]
-if (len(param) != 1):
-    print('Informa 1 parametro para prosseguir')
+if (len(param) != 2):
+    print('Informa 1 parametro para prosseguir\n')
+    print('Formado: main.py <operacao> <arquivo>\n')
+    print('Operacoes disponiveis:\n')
+    print('c = criptografar')
+    print('d = descriptografar')
     sys.exit()
-nmArquivo = param[0]
+
+#definir variaveis para parametros informados
+opcao = param[0]
+nmArquivo = param[1]
+
+#Verificar se o arquivo informaod existe
 try:
    with open(nmArquivo, 'r') as f:
        print()
@@ -12,7 +23,16 @@ except IOError:
     print('Arquivo não encontrado!')
     sys.exit()
 
+#funcao principal
 def main():
+    if (opcao == 'c'):
+        criptografar()
+    elif (opcao == 'd'):
+        descriptografar()
+    else:
+        print('Escolha uma opcao valida!\n')
+
+def criptografar():
     i = 0
     j = 0
     seed()
@@ -43,8 +63,11 @@ def main():
     print('D: ',d)
     print('Cifrando o arquivo..\n')
     cifrarArquivo()
-    decifrarArquivo("arquivo.cif")
+    criptoArquivoCifrado(e,n)
 
+def descriptografar():
+    decifrarArquivo()
+    descriptografarArquivo()
 
 def verificaPrimalidade(num):
     a = 3
@@ -72,7 +95,6 @@ def calcularPhiN(p,q):
     return PhiN
 
 def cifrarArquivo():
-    #nmArquivo = param[0]
     arquivo = open(nmArquivo,'r')
     nmArquivoCif = nmArquivo+'.cif'
     arquivocif = open(nmArquivoCif,'w')
@@ -85,7 +107,21 @@ def cifrarArquivo():
             arquivocif.write('\n')  
     arquivocif.close()
 
-def decifrarArquivo(nmArquivo):
+def criptoArquivoCifrado(e,n):
+    nmArquivoCif = nmArquivo+'.cif'
+    arquivoCif = open(nmArquivoCif,'r')
+    nmArquivoCrypto = nmArquivo+'.crypto'
+    arquivoCrypto = open(nmArquivoCrypto,'w')
+    print(nmArquivoCrypto)
+    for linha in arquivoCif:
+        valorCrypto = int(linha)
+        print(valorCrypto)
+        print((valorCrypto**e)%n)
+        arquivoCrypto.write(str((valorCrypto**e)%n))
+        arquivoCrypto.write('\n')
+    arquivoCrypto.close()
+
+def decifrarArquivo():
     arquivo = open(nmArquivo,'r')
     nmArquivoDeCif = nmArquivo+'.orig'
     arquivoDecif = open(nmArquivoDeCif,'w')
@@ -95,5 +131,7 @@ def decifrarArquivo(nmArquivo):
         print(chr(int(linha)))  
         arquivoDecif.write(chr(int(linha)))
     arquivoDecif.close()
+
+
 
 main()
