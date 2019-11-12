@@ -1,0 +1,1 @@
+/usr/bin/c++  -g -O0 -Wall -Wextra -pedantic-errors -g  -rdynamic CMakeFiles/OperatorsIncrementDecrementTest.dir/test/operators/increment_decrement.cpp.o  -o ../bin/OperatorsIncrementDecrementTest lib/libTestRunner.a 

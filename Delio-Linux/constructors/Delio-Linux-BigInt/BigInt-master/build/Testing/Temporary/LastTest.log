@@ -1,0 +1,201 @@
+Start testing: Nov 12 00:05 -02
+----------------------------------------------------------
+1/11 Testing: ConstructorsTest
+1/11 Test: ConstructorsTest
+Command: "/home/delio/Delio-Linux-BigInt/BigInt-master/bin/ConstructorsTest"
+Directory: /home/delio/Delio-Linux-BigInt/BigInt-master/build
+"ConstructorsTest" start time: Nov 12 00:05 -02
+Output:
+----------------------------------------------------------
+===============================================================================
+All tests passed (66 assertions in 2 test cases)
+
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"ConstructorsTest" end time: Nov 12 00:05 -02
+"ConstructorsTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/11 Testing: FunctionsConversionTest
+2/11 Test: FunctionsConversionTest
+Command: "/home/delio/Delio-Linux-BigInt/BigInt-master/bin/FunctionsConversionTest"
+Directory: /home/delio/Delio-Linux-BigInt/BigInt-master/build
+"FunctionsConversionTest" start time: Nov 12 00:05 -02
+Output:
+----------------------------------------------------------
+===============================================================================
+All tests passed (80 assertions in 4 test cases)
+
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"FunctionsConversionTest" end time: Nov 12 00:05 -02
+"FunctionsConversionTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/11 Testing: FunctionsMathTest
+3/11 Test: FunctionsMathTest
+Command: "/home/delio/Delio-Linux-BigInt/BigInt-master/bin/FunctionsMathTest"
+Directory: /home/delio/Delio-Linux-BigInt/BigInt-master/build
+"FunctionsMathTest" start time: Nov 12 00:05 -02
+Output:
+----------------------------------------------------------
+===============================================================================
+All tests passed (1428 assertions in 17 test cases)
+
+<end of output>
+Test time =   0.76 sec
+----------------------------------------------------------
+Test Passed.
+"FunctionsMathTest" end time: Nov 12 00:05 -02
+"FunctionsMathTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/11 Testing: FunctionsRandomTest
+4/11 Test: FunctionsRandomTest
+Command: "/home/delio/Delio-Linux-BigInt/BigInt-master/bin/FunctionsRandomTest"
+Directory: /home/delio/Delio-Linux-BigInt/BigInt-master/build
+"FunctionsRandomTest" start time: Nov 12 00:05 -02
+Output:
+----------------------------------------------------------
+===============================================================================
+All tests passed (100 assertions in 2 test cases)
+
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"FunctionsRandomTest" end time: Nov 12 00:05 -02
+"FunctionsRandomTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/11 Testing: OperatorsArithmeticAssignmentTest
+5/11 Test: OperatorsArithmeticAssignmentTest
+Command: "/home/delio/Delio-Linux-BigInt/BigInt-master/bin/OperatorsArithmeticAssignmentTest"
+Directory: /home/delio/Delio-Linux-BigInt/BigInt-master/build
+"OperatorsArithmeticAssignmentTest" start time: Nov 12 00:05 -02
+Output:
+----------------------------------------------------------
+===============================================================================
+All tests passed (31 assertions in 5 test cases)
+
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"OperatorsArithmeticAssignmentTest" end time: Nov 12 00:05 -02
+"OperatorsArithmeticAssignmentTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/11 Testing: OperatorsAssignmentTest
+6/11 Test: OperatorsAssignmentTest
+Command: "/home/delio/Delio-Linux-BigInt/BigInt-master/bin/OperatorsAssignmentTest"
+Directory: /home/delio/Delio-Linux-BigInt/BigInt-master/build
+"OperatorsAssignmentTest" start time: Nov 12 00:05 -02
+Output:
+----------------------------------------------------------
+===============================================================================
+All tests passed (13 assertions in 3 test cases)
+
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"OperatorsAssignmentTest" end time: Nov 12 00:05 -02
+"OperatorsAssignmentTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/11 Testing: OperatorsBinaryArithmeticTest
+7/11 Test: OperatorsBinaryArithmeticTest
+Command: "/home/delio/Delio-Linux-BigInt/BigInt-master/bin/OperatorsBinaryArithmeticTest"
+Directory: /home/delio/Delio-Linux-BigInt/BigInt-master/build
+"OperatorsBinaryArithmeticTest" start time: Nov 12 00:05 -02
+Output:
+----------------------------------------------------------
+===============================================================================
+All tests passed (665 assertions in 11 test cases)
+
+<end of output>
+Test time =   0.22 sec
+----------------------------------------------------------
+Test Passed.
+"OperatorsBinaryArithmeticTest" end time: Nov 12 00:05 -02
+"OperatorsBinaryArithmeticTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/11 Testing: OperatorsIncrementDecrementTest
+8/11 Test: OperatorsIncrementDecrementTest
+Command: "/home/delio/Delio-Linux-BigInt/BigInt-master/bin/OperatorsIncrementDecrementTest"
+Directory: /home/delio/Delio-Linux-BigInt/BigInt-master/build
+"OperatorsIncrementDecrementTest" start time: Nov 12 00:05 -02
+Output:
+----------------------------------------------------------
+===============================================================================
+All tests passed (16 assertions in 4 test cases)
+
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"OperatorsIncrementDecrementTest" end time: Nov 12 00:05 -02
+"OperatorsIncrementDecrementTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/11 Testing: OperatorsIOStreamTest
+9/11 Test: OperatorsIOStreamTest
+Command: "/home/delio/Delio-Linux-BigInt/BigInt-master/bin/OperatorsIOStreamTest"
+Directory: /home/delio/Delio-Linux-BigInt/BigInt-master/build
+"OperatorsIOStreamTest" start time: Nov 12 00:05 -02
+Output:
+----------------------------------------------------------
+===============================================================================
+All tests passed (1 assertion in 1 test case)
+
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"OperatorsIOStreamTest" end time: Nov 12 00:05 -02
+"OperatorsIOStreamTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/11 Testing: OperatorsRelationalTest
+10/11 Test: OperatorsRelationalTest
+Command: "/home/delio/Delio-Linux-BigInt/BigInt-master/bin/OperatorsRelationalTest"
+Directory: /home/delio/Delio-Linux-BigInt/BigInt-master/build
+"OperatorsRelationalTest" start time: Nov 12 00:05 -02
+Output:
+----------------------------------------------------------
+===============================================================================
+All tests passed (531 assertions in 2 test cases)
+
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"OperatorsRelationalTest" end time: Nov 12 00:05 -02
+"OperatorsRelationalTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/11 Testing: OperatorsUnaryArithmeticTest
+11/11 Test: OperatorsUnaryArithmeticTest
+Command: "/home/delio/Delio-Linux-BigInt/BigInt-master/bin/OperatorsUnaryArithmeticTest"
+Directory: /home/delio/Delio-Linux-BigInt/BigInt-master/build
+"OperatorsUnaryArithmeticTest" start time: Nov 12 00:05 -02
+Output:
+----------------------------------------------------------
+===============================================================================
+All tests passed (4 assertions in 1 test case)
+
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"OperatorsUnaryArithmeticTest" end time: Nov 12 00:05 -02
+"OperatorsUnaryArithmeticTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 12 00:05 -02

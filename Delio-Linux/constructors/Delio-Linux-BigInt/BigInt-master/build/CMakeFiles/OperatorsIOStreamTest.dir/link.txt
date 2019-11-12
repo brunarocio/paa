@@ -1,0 +1,1 @@
+/usr/bin/c++  -g -O0 -Wall -Wextra -pedantic-errors -g  -rdynamic CMakeFiles/OperatorsIOStreamTest.dir/test/operators/io_stream.cpp.o  -o ../bin/OperatorsIOStreamTest lib/libTestRunner.a 

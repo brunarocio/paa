@@ -1,0 +1,1 @@
+/usr/bin/c++  -g -O0 -Wall -Wextra -pedantic-errors -g  -rdynamic CMakeFiles/OperatorsUnaryArithmeticTest.dir/test/operators/unary_arithmetic.cpp.o  -o ../bin/OperatorsUnaryArithmeticTest lib/libTestRunner.a 

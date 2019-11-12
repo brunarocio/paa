@@ -1,0 +1,12 @@
+ConstructorsTest 1 0.0324461
+FunctionsConversionTest 1 0.0260859
+FunctionsMathTest 1 0.756435
+FunctionsRandomTest 1 0.039077
+OperatorsArithmeticAssignmentTest 1 0.0403581
+OperatorsAssignmentTest 1 0.0272729
+OperatorsBinaryArithmeticTest 1 0.224738
+OperatorsIncrementDecrementTest 1 0.0287359
+OperatorsIOStreamTest 1 0.0399909
+OperatorsRelationalTest 1 0.027302
+OperatorsUnaryArithmeticTest 1 0.0268459
+---

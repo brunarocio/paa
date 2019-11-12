@@ -1,0 +1,1 @@
+/usr/bin/c++  -g -O0 -Wall -Wextra -pedantic-errors -g  -rdynamic CMakeFiles/OperatorsBinaryArithmeticTest.dir/test/operators/binary_arithmetic.cpp.o  -o ../bin/OperatorsBinaryArithmeticTest lib/libTestRunner.a 

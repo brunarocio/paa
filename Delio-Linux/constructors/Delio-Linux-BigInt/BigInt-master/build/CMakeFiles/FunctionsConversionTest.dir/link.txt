@@ -1,0 +1,1 @@
+/usr/bin/c++  -g -O0 -Wall -Wextra -pedantic-errors -g  -rdynamic CMakeFiles/FunctionsConversionTest.dir/test/functions/conversion.cpp.o  -o ../bin/FunctionsConversionTest lib/libTestRunner.a 

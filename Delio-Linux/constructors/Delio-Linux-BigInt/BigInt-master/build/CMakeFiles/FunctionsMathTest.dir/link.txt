@@ -1,0 +1,1 @@
+/usr/bin/c++  -g -O0 -Wall -Wextra -pedantic-errors -g  -rdynamic CMakeFiles/FunctionsMathTest.dir/test/functions/math.cpp.o  -o ../bin/FunctionsMathTest lib/libTestRunner.a 

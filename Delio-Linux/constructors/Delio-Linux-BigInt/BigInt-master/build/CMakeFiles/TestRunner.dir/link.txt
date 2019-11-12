@@ -1,0 +1,2 @@
+/usr/bin/ar qc lib/libTestRunner.a  CMakeFiles/TestRunner.dir/test/test_runner.cpp.o
+/usr/bin/ranlib lib/libTestRunner.a

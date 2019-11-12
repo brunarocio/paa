@@ -1,0 +1,1 @@
+/usr/bin/c++  -g -O0 -Wall -Wextra -pedantic-errors -g  -rdynamic CMakeFiles/ConstructorsTest.dir/test/constructors/constructors.cpp.o  -o ../bin/ConstructorsTest lib/libTestRunner.a 
