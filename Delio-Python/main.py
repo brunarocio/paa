@@ -59,9 +59,10 @@ def criptografar():
     print('Definindo variaveis para criação da chave privada')
     n = p*q
     e = 3
-    d = gerarD(p,q,n,e)
+    d = gerarChavePrivada(p,q,n,e)
     print('D: ',d)
     print('Cifrando o arquivo..\n')
+    gerarChavePublica(n,e)
     cifrarArquivo()
     criptoArquivoCifrado(e,n)
 
@@ -81,13 +82,21 @@ def verificaPrimalidade(num):
         return 0
     return 1
 
-def gerarChavePublica():
-    return 1
+def gerarChavePublica(n,e):
+    nmArquivoPublicKey = 'public.key'
+    arquivoPublicKey = open(nmArquivoPublicKey,'w')
+    arquivoPublicKey.write(str(n))
+    arquivoPublicKey.write('\n')
+    arquivoPublicKey.write(str(e))
+    arquivoPublicKey.close()
 
-def gerarD(p,q,n,e):
+def gerarChavePrivada(p,q,n,e):
     PhiN = (p-1)*(q-1)
     privatekey = ((2*(PhiN)) + 1)/2
-    return privatekey
+    nmArquivoPrivateKey = 'private.key'
+    arquivoPrivateKey = open(nmArquivoPrivateKey,'w')
+    arquivoPrivateKey.write(str(privatekey))
+    arquivoPrivateKey.close()
 
 def calcularPhiN(p,q):
     #como calcular phi de N
@@ -131,6 +140,9 @@ def decifrarArquivo():
         print(chr(int(linha)))  
         arquivoDecif.write(chr(int(linha)))
     arquivoDecif.close()
+
+def descriptografarArquivo():
+    print("descobriptografando..\n")
 
 
 
