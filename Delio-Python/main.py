@@ -1,5 +1,6 @@
 from random import *
 import sys
+import math
 
 #verificar parametros informados
 param = sys.argv[1:]
@@ -67,7 +68,7 @@ def criptografar():
     criptoArquivoCifrado(e,n)
 
 def descriptografar():
-    decifrarArquivo()
+    #decifrarArquivo()
     descriptografarArquivo()
 
 def verificaPrimalidade(num):
@@ -141,9 +142,42 @@ def decifrarArquivo():
         arquivoDecif.write(chr(int(linha)))
     arquivoDecif.close()
 
+def getChavePublica():
+    arquivoPublicKey = open('public.key','r')
+    key = arquivoPublicKey.readlines()
+    arquivoPublicKey.close()
+    return key
+
+def getChavePrivada():
+    arquivoPrivateKey = open('private.key','r')
+    key = arquivoPrivateKey.readlines()
+    arquivoPrivateKey.close()
+    return key[0]
+
 def descriptografarArquivo():
-    print("descobriptografando..\n")
+    nmArquivoCrypto = nmArquivo
+    nmArquivoDecrypto = nmArquivo+'.decrypto'
+    arquivoCrypto = open(nmArquivoCrypto,'r')
+    arquivoDecrypto = open(nmArquivoDecrypto,'w')
+    publicKey = getChavePublica()
+    n = int(publicKey[0])
+    e = int(publicKey[1])
+    d = float(getChavePrivada())
 
-
+    for linha in arquivoCrypto:
+        print('Valor n: ')
+        print(n)
+        print('Valor e: ')
+        print(e)
+        print('Valor d: ')
+        print(d)
+        valorCrypto = int(linha)
+        print("valor linha: ")
+        print(valorCrypto)
+        print(math.pow(valorCrypto,d))
+        #print(1367631 ** 2174328) % n
+        #pow(valorCrypto,d,n)
+        #valorDecrypto = (valorCrypto**d)%n
+        #arquivoDecrypto.write(str(valorDecrypto))
 
 main()
