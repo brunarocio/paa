@@ -1,3 +1,4 @@
+from time import time
 from random import *
 import sys
 import math
@@ -39,8 +40,12 @@ def criptografar():
     seed()
     p = randint(1000,2000)
     q = randint(1000,2000)
-    #2**128p = randint(1000000000000000000000000000000000000000,10000000000000000000000000000000000000000)
+    #2**128
+    #p = randint(1000000000000000000000000000000000000000,10000000000000000000000000000000000000000)
+    #q = randint(1000000000000000000000000000000000000000,10000000000000000000000000000000000000000)
     #2**32#p = randint(10000000000,100000000000)
+    #p = randint(10000000000,100000000000)
+    #q = randint(10000000000,100000000000)
     
     print('Numero gerado P: ',p,'\nQ: ',q,'\n')
     if ((p%2) == 0):
@@ -68,6 +73,9 @@ def criptografar():
     e = auxe
     #e = 3
     print("E: ",e)    
+    #Calcular euclides estendido
+    auxd = mdc(PhiN,e)
+    print('d?: ',auxd)
     d = gerarChavePrivada(p,q,n,e)
     print('N: ',n)
     print('D: ',d)
@@ -83,9 +91,20 @@ def descriptografar():
 def verificaPrimalidade(num):
     a = 3
     b = num-1
-    c = (a**b)
+    #c = (a**b)
+    print('aplicando pow\n')
+    starttime = time()
+
+
+    c = pow(a,b)
+    print(time() - starttime)
     #print('C: ',c)
+
+    print('aplicando modulo\n')
+    starttime = time()
     primo = c%num
+    print(time() - starttime)
+
     #primo = pow(b,a,num)
     print('Primo: ',primo)
     if (primo != 1):
