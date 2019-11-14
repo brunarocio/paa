@@ -2,6 +2,8 @@ from time import time
 from random import *
 import sys
 import math
+print(sys.getrecursionlimit())
+
 
 #verificar parametros informados
 param = sys.argv[1:]
@@ -74,9 +76,11 @@ def criptografar():
     #e = 3
     print("E: ",e)    
     #Calcular euclides estendido
-    auxd = mdc(PhiN,e)
-    print('d?: ',auxd)
-    d = gerarChavePrivada(p,q,n,e)
+    #auxd = mdc(PhiN,e)
+    #print('d?: ',auxd)
+    auxd = gerarChavePrivada(p,q,n,e)
+    d = round(auxd,0)
+    #d = euclidesEst(PhiN,e)
     print('N: ',n)
     print('D: ',d)
     print('Cifrando o arquivo..\n')
@@ -89,26 +93,19 @@ def descriptografar():
     descriptografarArquivo()
 
 def verificaPrimalidade(num):
-    a = 3
+    a = num
     b = num-1
     #c = (a**b)
     print('aplicando pow\n')
-    starttime = time()
-
-
-    c = pow(a,b)
-    print(time() - starttime)
-    #print('C: ',c)
-
-    print('aplicando modulo\n')
-    starttime = time()
-    primo = c%num
-    print(time() - starttime)
-
-    #primo = pow(b,a,num)
-    print('Primo: ',primo)
-    if (primo != 1):
-        return 0
+    for i in range (5):
+        a = a // 2
+        c = pow(a,b)
+        #print('C: ',c)
+        primo = c%num
+        #primo = pow(b,a,num)
+        print('Primo: ',primo)
+        if (primo != 1):
+            return 0
     return 1
 
 def gerarChavePublica(n,e):
@@ -127,11 +124,12 @@ def gerarChavePrivada(p,q,n,e):
     PhiN = phiN(p,q)
     print('Phi de N: ',PhiN)
     #g = PhiN-1
-    privatekey = ((2*(PhiN)) + 1)/e
+    privatekey = ((2*(PhiN)) + 1)//e
     nmArquivoPrivateKey = 'private.key'
     arquivoPrivateKey = open(nmArquivoPrivateKey,'w')
     arquivoPrivateKey.write(str(privatekey))
     arquivoPrivateKey.close()
+    return privatekey
 
 def calcularPhiN(p,q):
     #como calcular phi de N
@@ -223,5 +221,28 @@ def mdc(a,b):
         a = b
         b = resto
     return a
+
+def euclidesEst(PhiN,e):
+    vetor = [0,0,0]
+    d = 0
+    x = 0
+    y = 0
+    a = PhiN
+    b = e
+    if (b == 0):
+        vetor[0] = a
+        vetor[1] = 1
+        vetor[2] = 0
+        return vetor
+    vetor = euclidesEst(b,a%b)
+    d = vetor[0]
+    x = vetor[1]
+    y = vetor[2]
+    vetor[0] =d
+    vetor[1] = y
+    vetor[2] = (x-(a/b)*y)
+    
+    d = vetor[1]
+    return vetor
 
 main()
