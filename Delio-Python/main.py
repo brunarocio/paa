@@ -59,7 +59,15 @@ def criptografar():
     print('Segundo numero primo encontrado \nP: ',p,'\nQ: ',q)
     print('Definindo variaveis para criação da chave privada')
     n = p*q
-    e = 5
+    #definindo e
+    PhiN = phiN(p,q)
+    auxe = 3
+    while (mdc(auxe,PhiN)!=1):
+        print('Buscando e..: ',auxe)
+        auxe+=1
+    e = auxe
+    #e = 3
+    print("E: ",e)    
     d = gerarChavePrivada(p,q,n,e)
     print('N: ',n)
     print('D: ',d)
@@ -92,11 +100,15 @@ def gerarChavePublica(n,e):
     arquivoPublicKey.write(str(e))
     arquivoPublicKey.close()
 
-def gerarChavePrivada(p,q,n,e):
+def phiN(p,q):
     PhiN = (p-1)*(q-1)
+    return PhiN
+
+def gerarChavePrivada(p,q,n,e):
+    PhiN = phiN(p,q)
     print('Phi de N: ',PhiN)
-    g = PhiN-1
-    privatekey = ((2*(PhiN)) + 1)/g
+    #g = PhiN-1
+    privatekey = ((2*(PhiN)) + 1)/e
     nmArquivoPrivateKey = 'private.key'
     arquivoPrivateKey = open(nmArquivoPrivateKey,'w')
     arquivoPrivateKey.write(str(privatekey))
@@ -183,5 +195,14 @@ def descriptografarArquivo():
         #valorDecrypto = (valorCrypto**d)%n
         #print(pow(valorCrypto,d))
         #arquivoDecrypto.write(str(valorDecrypto))
+
+def mdc(a,b):
+    #resto = 1
+    #maximo divisor comum
+    while (b!=0):
+        resto = a%b
+        a = b
+        b = resto
+    return a
 
 main()
