@@ -40,8 +40,8 @@ def criptografar():
     i = 0
     j = 0
     seed()
-    p = randint(1000,2000)
-    q = randint(1000,2000)
+    #p = randint(1000,2000)
+    #q = randint(1000,2000)
     #2**128
     #p = randint(1000000000000000000000000000000000000000,10000000000000000000000000000000000000000)
     #q = randint(1000000000000000000000000000000000000000,10000000000000000000000000000000000000000)
@@ -56,13 +56,17 @@ def criptografar():
         q = q+1
     while (verificaPrimalidade(p)==0):
         i=i+1
-        print('2 - Tentativa ',i,'Numero ',p,' nao e primo')
+        #print('2 - Tentativa ',i,'Numero ',p,' nao e primo')
+        print('.')
         p = p+2
-    print('Primeiro numero primo encontrado')
+    print('\n')
+    print('Primeiro numero primo encontrado\n')
     while not (verificaPrimalidade(q)==0):
         j=j+1
-        print('2 - Tentativa ',j,'Numero ',q,' nao e primo')
+        #print('2 - Tentativa ',j,'Numero ',q,' nao e primo')
+        print('.')
         q = q+2
+    print('\n')
     print('Segundo numero primo encontrado \nP: ',p,'\nQ: ',q)
     print('Definindo variaveis para criação da chave privada')
     n = p*q
@@ -70,7 +74,7 @@ def criptografar():
     PhiN = phiN(p,q)
     auxe = 3
     while (mdc(auxe,PhiN)!=1):
-        print('Buscando e..: ',auxe)
+        print('.. ',auxe)
         auxe+=1
     e = auxe
     #e = 3
@@ -96,14 +100,14 @@ def verificaPrimalidade(num):
     a = num
     b = num-1
     #c = (a**b)
-    print('aplicando pow\n')
+    ##print('aplicando pow\n')
     for i in range (5):
         a = a // 2
         c = pow(a,b)
         #print('C: ',c)
         primo = c%num
         #primo = pow(b,a,num)
-        print('Primo: ',primo)
+        ##print('Primo: ',primo)
         if (primo != 1):
             return 0
     return 1
