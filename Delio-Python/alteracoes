@@ -1,0 +1,3 @@
+16.11.2019
+- Corrigir a geração do D / chave privada
+- Corrigir fermat (lentidão na geração com chaves números maiores)
