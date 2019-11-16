@@ -1,3 +1,9 @@
 16.11.2019
 - Corrigir a geração do D / chave privada
+-- Removido passo que deixava o D não decimal "a força".
+-- Implementar euclides estendido.
+-- Utilizada a implementaçãod e um aluno
+-- não gera numero quebrado, mas gera número com .0. definido na aplicação da variavel como int para forçar o .0 no final.
+
 - Corrigir fermat (lentidão na geração com chaves números maiores)
+

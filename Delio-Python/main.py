@@ -70,18 +70,27 @@ def criptografar():
     print('Segundo numero primo encontrado \nP: ',p,'\nQ: ',q)
     print('Definindo variaveis para criação da chave privada')
     n = p*q
+
     #definindo e
     PhiN = phiN(p,q)
+
     auxe = 3
     while (mdc(auxe,PhiN)!=1):
         print('.. ',auxe)
         auxe+=1
     e = auxe
     #e = 3
+    
     print("E: ",e)    
     #Calcular euclides estendido
     #auxd = mdc(PhiN,e)
     #print('d?: ',auxd)
+    #definindo d
+    x = 1
+    y = 1
+    #eX = euclidesExt(e,PhiN,x,y)
+    eX = int(eucliedesExt2(e,PhiN,x))
+    print('eX D: ',eX)
     auxd = gerarChavePrivada(p,q,n,e)
     d = round(auxd,0)
     #d = euclidesEst(PhiN,e)
@@ -128,7 +137,8 @@ def gerarChavePrivada(p,q,n,e):
     PhiN = phiN(p,q)
     print('Phi de N: ',PhiN)
     #g = PhiN-1
-    privatekey = ((2*(PhiN)) + 1)//e
+    x = 1
+    privatekey = int(eucliedesExt2(e,PhiN,x))
     nmArquivoPrivateKey = 'private.key'
     arquivoPrivateKey = open(nmArquivoPrivateKey,'w')
     arquivoPrivateKey.write(str(privatekey))
@@ -225,8 +235,27 @@ def mdc(a,b):
         a = b
         b = resto
     return a
+def eucliedesExt2(a,b,c):
+    r = b % a
+    if r == 0:
+        return ( (c / a) % ( b / a) )
+    
+    return ( ( eucliedesExt2(r, a, -c) * b + c) / (a % b) )
 
-def euclidesEst(PhiN,e):
+def euclidesExt(p,q,x,y):
+    if p==0:
+        x = 0
+        y = 1
+        return q
+    x1 = 1
+    y1 = 1
+    print("recursao1")
+    eucExt = euclidesExt(q%p,p,x1,y1)
+    x = y1 - (q/p) * x1
+    y = x1
+    return eucExt
+
+def euclidesEst(e,PhiN):
     vetor = [0,0,0]
     d = 0
     x = 0
