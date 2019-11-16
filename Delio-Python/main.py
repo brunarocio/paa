@@ -20,9 +20,10 @@ opcao = param[0]
 nmArquivo = param[1]
 
 #Verificar se o arquivo informaod existe
+print('Verificando arquivo informado...')
 try:
    with open(nmArquivo, 'r') as f:
-       print()
+       print('Arquivo encontrado com sucesso!')
 except IOError:
     print('Arquivo não encontrado!')
     sys.exit()
@@ -40,8 +41,10 @@ def criptografar():
     i = 0
     j = 0
     seed()
+    print('Gerando números aleatórios...')
     p = randint(1000,2000)
     q = randint(1000,2000)
+    print('Numeros aleatórios gerados com sucesso!')
     #2**128
     #p = randint(1000000000000000000000000000000000000000,10000000000000000000000000000000000000000)
     #q = randint(1000000000000000000000000000000000000000,10000000000000000000000000000000000000000)
@@ -54,6 +57,7 @@ def criptografar():
         p = p+1
     if ((q%2) == 0):
         q = q+1
+    print('Verificando primalidade do primeiro número gerado...')
     while (verificaPrimalidade(p)==0):
         i=i+1
         #print('2 - Tentativa ',i,'Numero ',p,' nao e primo')
@@ -61,14 +65,14 @@ def criptografar():
         p = p+2
     #print('\n')
     #print('Primeiro numero primo encontrado\n')
+    print('Verificando primalidade do segundo número gerado...')
     while (verificaPrimalidade(q)==0):
         j=j+1
         #print('2 - Tentativa ',j,'Numero ',q,' nao e primo')
         #print('.')
         q = q+2
-    print('\n')
-    print('Segundo numero primo encontrado \nP: ',p,'\nQ: ',q)
-    print('Definindo variaveis para criação da chave privada')
+    print('Numeros primos encontrados \nP: ',p,'\nQ: ',q)
+    print('Definindo variaveis para criação da chave publica & privada..')
     n = p*q
 
     #definindo e
@@ -90,7 +94,7 @@ def criptografar():
     y = 1
     #eX = euclidesExt(e,PhiN,x,y)
     eX = int(eucliedesExt2(e,PhiN,x))
-    print('eX D: ',eX)
+    print('D: ',eX)
     auxd = gerarChavePrivada(p,q,n,e)
     d = round(auxd,0)
     #d = euclidesEst(PhiN,e)
