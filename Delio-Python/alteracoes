@@ -7,3 +7,9 @@
 
 - Corrigir fermat (lentidão na geração com chaves números maiores)
 
+- Gerar descriptografia
+
+- Passos
+-- Ao gerar a criptografia, criamos primeiro um arquivo "cifrado" (converte letras e numeros em UTF-8 - números)
+
+
