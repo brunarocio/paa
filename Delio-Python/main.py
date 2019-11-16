@@ -2,7 +2,7 @@ from time import time
 from random import *
 import sys
 import math
-print(sys.getrecursionlimit())
+#print(sys.getrecursionlimit())
 
 
 #verificar parametros informados
@@ -116,8 +116,12 @@ def criptografar():
 
 def descriptografar():
     #decifrarArquivo()
+    print('Descriptografando arquivo..')
     descriptografarArquivo()
+    print('Arquivo descriptografado com sucesso!')
+    print('Decifrando arquivo..')
     decifrarArquivo()
+    print('Arquivo decifrado com sucesso!')
 
 def verificaPrimalidade(num):
     a = num
@@ -198,10 +202,10 @@ def decifrarArquivo():
     arquivo = open(nmArquivo+'.decrypto','r')
     nmArquivoDeCif = nmArquivo+'.orig'
     arquivoDecif = open(nmArquivoDeCif,'w')
-    print(nmArquivo)
+    #print(nmArquivo)
     for linha in arquivo:
-        print(linha)
-        print(chr(int(linha)))  
+        #print(linha)
+        #print(chr(int(linha)))  
         arquivoDecif.write(chr(int(linha)))
     arquivoDecif.close()
 
@@ -228,18 +232,18 @@ def descriptografarArquivo():
     d = int(getChavePrivada())
 
     for linha in arquivoCrypto:
-        print('Valor n: ')
-        print(n)
-        print('Valor e: ')
-        print(e)
-        print('Valor d: ')
-        print(d)
+        #print('Valor n: ')
+        #print(n)
+        #print('Valor e: ')
+        #print(e)
+        #print('Valor d: ')
+        #print(d)
         valorCrypto = int(linha)
-        print("valor linha: ")
-        print(valorCrypto)
+        #print("valor linha: ")
+        #print(valorCrypto)
         #print(math.pow(valorCrypto,(d-0.5)))
         #print(1367631 ** 2174328) % n
-        print('valor descriptografado: ',pow(valorCrypto,d,n))
+        ##print('valor descriptografado: ',pow(valorCrypto,d,n))
         #valorDecrypto = (valorCrypto**d)%n
         valorDecrypto = pow(valorCrypto,d,n)
         #print(pow(valorCrypto,d))
