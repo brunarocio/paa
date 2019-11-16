@@ -3,6 +3,7 @@ from random import *
 import sys
 import math
 from criptografia import *
+from quebraChave import *
 #print(sys.getrecursionlimit())
 
 
