@@ -49,7 +49,7 @@ def criptografar():
     print('Numeros aleatórios gerados com sucesso!')
     #2**128
     #p = randint(1000000000000000000000000000000000000000,10000000000000000000000000000000000000000)
-    qtdeBits = 512
+    qtdeBits = 1024
     p = randint(2**qtdeBits,2**(qtdeBits+1)-1)
     q = randint(2**qtdeBits,2**(qtdeBits+1)-1)
     #q = randint(1000000000000000000000000000000000000000,10000000000000000000000000000000000000000)
