@@ -6,6 +6,7 @@
 --oknão gera numero quebrado, mas gera número com .0. definido na aplicação da variavel como int para forçar o .0 no final.
 --ok Corrigir fermat (lentidão na geração com chaves números maiores)
 -- Incluir time para a descriptografia
+-- Incluir quebra com heuristicas (polland rho)
 -- Incluir quebra de chave força bruta e time
 
 - Gerar descriptografia
