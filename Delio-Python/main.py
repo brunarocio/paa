@@ -19,7 +19,7 @@ if (len(param) != 2):
 opcao = param[0]
 nmArquivo = param[1]
 
-#Verificar se o arquivo informaod existe
+#Verificar se o arquivo informado existe
 print('Verificando arquivo informado...')
 try:
    with open(nmArquivo, 'r') as f:
@@ -42,11 +42,16 @@ def criptografar():
     j = 0
     seed()
     print('Gerando números aleatórios...')
-    p = randint(1000,2000)
-    q = randint(1000,2000)
+    #p = randint(10000,20000)
+    #p = randint(100000000,900000000)
+    #q = randint(10000,20000)
+    #q = randint(100000000,900000000)
     print('Numeros aleatórios gerados com sucesso!')
     #2**128
     #p = randint(1000000000000000000000000000000000000000,10000000000000000000000000000000000000000)
+    qtdeBits = 512
+    p = randint(2**qtdeBits,2**(qtdeBits+1)-1)
+    q = randint(2**qtdeBits,2**(qtdeBits+1)-1)
     #q = randint(1000000000000000000000000000000000000000,10000000000000000000000000000000000000000)
     #2**32#p = randint(10000000000,100000000000)
     #p = randint(10000000000,100000000000)
@@ -71,7 +76,7 @@ def criptografar():
         #print('2 - Tentativa ',j,'Numero ',q,' nao e primo')
         #print('.')
         q = q+2
-    print('Numeros primos encontrados \nP: ',p,'\nQ: ',q)
+    print('Numeros primos encontrados: \nP: ',p,'\nQ: ',q)
     print('Definindo variaveis para criação da chave publica & privada..')
     n = p*q
 
@@ -95,15 +100,19 @@ def criptografar():
     #eX = euclidesExt(e,PhiN,x,y)
     eX = int(eucliedesExt2(e,PhiN,x))
     print('D: ',eX)
+    print('Gerando chave publica..')
+    gerarChavePublica(n,e)
+    print('Gerando chave privada...')
     auxd = gerarChavePrivada(p,q,n,e)
     d = round(auxd,0)
     #d = euclidesEst(PhiN,e)
     print('N: ',n)
     print('D: ',d)
     print('Cifrando o arquivo..\n')
-    gerarChavePublica(n,e)
-    cifrarArquivo()
-    criptoArquivoCifrado(e,n)
+    nmArquivoCifrado = cifrarArquivo()
+    print('Arquivo ',nmArquivoCifrado,' cifrado com sucesso!')
+    nmArquivoCriptografado = criptoArquivoCifrado(e,n)
+    print('Arquivo ',nmArquivoCriptografado,' criptografado com sucesso!')
 
 def descriptografar():
     #decifrarArquivo()
@@ -117,9 +126,10 @@ def verificaPrimalidade(num):
     ##print('aplicando pow\n')
     for i in range (5):
         a = a // 2
-        c = pow(a,b)
+        #c = pow(a,b)
         #print('C: ',c)
-        primo = c%num
+        #primo = c%num
+        primo = pow(a,b,num)
         #primo = pow(b,a,num)
         ##print('Primo: ',primo)
         if (primo != 1):
@@ -167,6 +177,7 @@ def cifrarArquivo():
             arquivocif.write(str(ord(caracter)))
             arquivocif.write('\n')  
     arquivocif.close()
+    return nmArquivoCif
 
 def criptoArquivoCifrado(e,n):
     nmArquivoCif = nmArquivo+'.cif'
@@ -181,6 +192,7 @@ def criptoArquivoCifrado(e,n):
         arquivoCrypto.write(str((valorCrypto**e)%n))
         arquivoCrypto.write('\n')
     arquivoCrypto.close()
+    return nmArquivoCrypto
 
 def decifrarArquivo():
     arquivo = open(nmArquivo+'.decrypto','r')
@@ -246,9 +258,11 @@ def mdc(a,b):
 def eucliedesExt2(a,b,c):
     r = b % a
     if r == 0:
-        return ( (c / a) % ( b / a) )
+        #return ( (c / a) % ( b / a) )
+        return ( (c // a) % ( b // a) )
     
-    return ( ( eucliedesExt2(r, a, -c) * b + c) / (a % b) )
+    #return ( ( eucliedesExt2(r, a, -c) * b + c) / (a % b) )
+    return ( ( eucliedesExt2(r, a, -c) * b + c) // (a % b) )
 
 def euclidesExt(p,q,x,y):
     if p==0:
