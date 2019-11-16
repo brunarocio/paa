@@ -49,7 +49,7 @@ def criptografar():
     #p = randint(10000000000,100000000000)
     #q = randint(10000000000,100000000000)
     
-    print('Numero gerado P: ',p,'\nQ: ',q,'\n')
+    #print('Numero gerado P: ',p,'\nQ: ',q,'\n')
     if ((p%2) == 0):
         p = p+1
     if ((q%2) == 0):
@@ -57,14 +57,14 @@ def criptografar():
     while (verificaPrimalidade(p)==0):
         i=i+1
         #print('2 - Tentativa ',i,'Numero ',p,' nao e primo')
-        print('.')
+        #print('.')
         p = p+2
-    print('\n')
-    print('Primeiro numero primo encontrado\n')
-    while not (verificaPrimalidade(q)==0):
+    #print('\n')
+    #print('Primeiro numero primo encontrado\n')
+    while (verificaPrimalidade(q)==0):
         j=j+1
         #print('2 - Tentativa ',j,'Numero ',q,' nao e primo')
-        print('.')
+        #print('.')
         q = q+2
     print('\n')
     print('Segundo numero primo encontrado \nP: ',p,'\nQ: ',q)
@@ -74,9 +74,9 @@ def criptografar():
     #definindo e
     PhiN = phiN(p,q)
 
-    auxe = 3
+    auxe = 32
     while (mdc(auxe,PhiN)!=1):
-        print('.. ',auxe)
+        #print('.. ',auxe)
         auxe+=1
     e = auxe
     #e = 3
@@ -104,6 +104,7 @@ def criptografar():
 def descriptografar():
     #decifrarArquivo()
     descriptografarArquivo()
+    decifrarArquivo()
 
 def verificaPrimalidade(num):
     a = num
@@ -154,11 +155,11 @@ def cifrarArquivo():
     arquivo = open(nmArquivo,'r')
     nmArquivoCif = nmArquivo+'.cif'
     arquivocif = open(nmArquivoCif,'w')
-    print(nmArquivoCif)
+    ##print(nmArquivoCif)
     for linha in arquivo:
-        print(linha)
+        #print(linha)
         for caracter in linha:
-            print(ord(caracter))  
+            ##print(ord(caracter))  
             arquivocif.write(str(ord(caracter)))
             arquivocif.write('\n')  
     arquivocif.close()
@@ -168,17 +169,17 @@ def criptoArquivoCifrado(e,n):
     arquivoCif = open(nmArquivoCif,'r')
     nmArquivoCrypto = nmArquivo+'.crypto'
     arquivoCrypto = open(nmArquivoCrypto,'w')
-    print(nmArquivoCrypto)
+    ##print(nmArquivoCrypto)
     for linha in arquivoCif:
         valorCrypto = int(linha)
-        print(valorCrypto)
-        print((valorCrypto**e)%n)
+        ##print(valorCrypto)
+        ##print((valorCrypto**e)%n)
         arquivoCrypto.write(str((valorCrypto**e)%n))
         arquivoCrypto.write('\n')
     arquivoCrypto.close()
 
 def decifrarArquivo():
-    arquivo = open(nmArquivo,'r')
+    arquivo = open(nmArquivo+'.decrypto','r')
     nmArquivoDeCif = nmArquivo+'.orig'
     arquivoDecif = open(nmArquivoDeCif,'w')
     print(nmArquivo)
@@ -222,10 +223,13 @@ def descriptografarArquivo():
         print(valorCrypto)
         #print(math.pow(valorCrypto,(d-0.5)))
         #print(1367631 ** 2174328) % n
-        print(pow(valorCrypto,d,n))
+        print('valor descriptografado: ',pow(valorCrypto,d,n))
         #valorDecrypto = (valorCrypto**d)%n
+        valorDecrypto = pow(valorCrypto,d,n)
         #print(pow(valorCrypto,d))
-        #arquivoDecrypto.write(str(valorDecrypto))
+        arquivoDecrypto.write(str(valorDecrypto))
+        arquivoDecrypto.write('\n')
+    arquivoDecrypto.close()
 
 def mdc(a,b):
     #resto = 1
@@ -249,7 +253,7 @@ def euclidesExt(p,q,x,y):
         return q
     x1 = 1
     y1 = 1
-    print("recursao1")
+    ##print("recursao1")
     eucExt = euclidesExt(q%p,p,x1,y1)
     x = y1 - (q/p) * x1
     y = x1

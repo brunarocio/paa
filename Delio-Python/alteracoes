@@ -2,7 +2,7 @@
 - Corrigir a geração do D / chave privada
 -- Removido passo que deixava o D não decimal "a força".
 -- Implementar euclides estendido.
--- Utilizada a implementaçãod e um aluno
+-- Utilizada a implementação
 -- não gera numero quebrado, mas gera número com .0. definido na aplicação da variavel como int para forçar o .0 no final.
 
 - Corrigir fermat (lentidão na geração com chaves números maiores)
@@ -10,6 +10,9 @@
 - Gerar descriptografia
 
 - Passos
--- Ao gerar a criptografia, criamos primeiro um arquivo "cifrado" (converte letras e numeros em UTF-8 - números)
+-- Ao gerar a criptografia, criamos primeiro um arquivo "cifrado" (converte letras e numeros em UTF-8 - números), chamado .cifrado
+-- Após, aplicando a criptografia, criamos um arquivo .crypto
+Para descriptografia,
+
 
 
