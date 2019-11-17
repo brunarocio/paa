@@ -62,10 +62,10 @@ def testeAutomatizado():
         hr_fim = datetime.now()
         tempoTotal = hr_fim-hr_ini
         arqTesteAuto = open(nmArqTesteAuto,'a')
-        #arquivo: qtde bits ; tempo decorrido; total interações; valor chave quebrada; tempo decorrido.
+        #arquivo: qtde bits ; tipo quebra; tempo decorrido; total interações; valor chave quebrada; tempo decorrido.
         valorEncontrado = str(chaveQueb[1])
         qtdeIteracoes = str(chaveQueb[0])
-        texto = (str(i)+';'+str(tempoTotal)+';'+str(qtdeIteracoes)+';'+str(valorEncontrado))
+        texto = (str(i)+';Pollard;'+str(tempoTotal)+';'+str(qtdeIteracoes)+';'+str(valorEncontrado))
         print('Texto: ',texto)
         #text_str = str(texto)
         arqTesteAuto.write(texto)
@@ -94,6 +94,9 @@ def quebraChavePollardRho():
 
 def quebraChaveForcaBruta():
     print("Quebra Chave Forca Bruta")
+    publicKey = getChavePublica()
+    n = int(publicKey[0])
+    bruteForce(n)
 
 def descriptografar():
     #decifrarArquivo()
@@ -210,5 +213,43 @@ def euclidesEst(e,PhiN):
     
     d = vetor[1]
     return vetor
+
+def calcularFator(num):
+    i = num
+    j = 0
+    k = 0
+    while (i-(k*k) > 0):
+        i +=j
+        k = math.sqrt(i)
+        if ((j%2) == 0):
+            j += 1
+        else:
+            j += 2
+        k += j
+        num /= k
+        if (num > k):
+            return k
+        else:
+            return num
+
+def bruteForce(num):
+    p = 1
+    q = 1
+    while True:
+        p = calcularFator (num)
+        while True:
+            q = calcularFator (p)
+            p /= q
+            if (q>1):
+                break
+        num /= p
+        if (p != 1):
+            print('Valor p : ',p)
+        else:
+            print('Valor num: ',num)
+        if (p>1):
+            break
+
+    print('Fatoracao completa!')
 
 main()
