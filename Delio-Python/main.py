@@ -43,10 +43,38 @@ def main():
         quebraChaveForcaBruta()
     elif (opcao == 'ta'):
         testeAutomatizado()
+    elif (opcao == 'tn'):
+        testeNexecucoes()
     else:
         print('Escolha uma opcao valida!\n')
 
 ##--
+
+def testeNexecucoes(j=32,k=100):
+    i = 0
+    nmArqTesteAuto = 'testeNauto'
+    while (i<=k):
+        criptografar(nmArquivo,j)
+        publicKey = getChavePublica()
+        n = int(publicKey[0])
+        e = int(publicKey[1])
+        #for j in range(5)
+        hr_ini = datetime.now()
+        chaveQueb = pollardRho(n,e)
+        hr_fim = datetime.now()
+        tempoTotal = hr_fim-hr_ini
+        arqTesteAuto = open(nmArqTesteAuto,'a')
+        #arquivo: qtde bits ; tipo quebra; tempo decorrido; total interações; valor chave quebrada; tempo decorrido.
+        valorEncontrado = str(chaveQueb[1])
+        qtdeIteracoes = str(chaveQueb[0])
+        texto = (str(j)+';Pollard;'+str(tempoTotal)+';'+str(qtdeIteracoes)+';'+str(valorEncontrado))
+        print('Texto: ',texto)
+        #text_str = str(texto)
+        arqTesteAuto.write(texto)
+        arqTesteAuto.write('\n')
+        print(i)
+        i = i+1
+    arqTesteAuto.close()
 
 def testeAutomatizado():
     i = 8
