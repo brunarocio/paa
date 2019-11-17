@@ -218,19 +218,21 @@ def calcularFator(num):
     i = num
     j = 0
     k = 0
-    while (i-(k*k) > 0):
+    while True:
         i +=j
-        k = math.sqrt(i)
+        k = int(math.sqrt(i))
         if ((j%2) == 0):
             j += 1
         else:
             j += 2
-        k += j
-        num /= k
-        if (num > k):
-            return k
-        else:
-            return num
+        if ((i-(k*k) > 0)):
+            break
+    k += j
+    num /= k
+    if (num > k):
+        return k
+    else:
+        return num
 
 def bruteForce(num):
     p = 1
