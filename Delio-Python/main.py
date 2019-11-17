@@ -1,5 +1,6 @@
 from time import time
 from random import *
+from datetime import *
 import sys
 import math
 from criptografia import *
@@ -36,10 +37,35 @@ def main():
         criptografar(nmArquivo)
     elif (opcao == 'd'):
         descriptografar()
+    elif (opcao == 'qp'):
+        quebraChavePollardRho()
+    elif (opcao == 'qb'):
+        quebraChaveForcaBruta()
     else:
         print('Escolha uma opcao valida!\n')
 
 ##--
+
+def quebraChavePollardRho():
+    print("Quebra Chave POllard Rho")
+    nmArquivoChave = nmArquivo
+    arquivoChave = open(nmArquivoChave,'r')
+    publicKey = getChavePublica()
+    n = int(publicKey[0])
+    e = int(publicKey[1])
+    d = int(getChavePrivada())
+    hr_inicio = datetime.now()
+    print('Tentando quebrar a chave as ...')
+    chaveQuebrada = pollardRho(n,e)
+    hr_fim = datetime.now()
+    print('Tempo total para quebra: ',hr_fim-hr_inicio)
+    if (chaveQuebrada < 0):
+        print('Nao foi possível quebrar a chave!')
+    else: 
+        print('Chave quebrada: ',chaveQuebrada)
+
+def quebraChaveForcaBruta():
+    print("Quebra Chave Forca Bruta")
 
 def descriptografar():
     #decifrarArquivo()
