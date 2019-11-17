@@ -1,7 +1,7 @@
 
 from random import *
 
-def criptografar(nmArquivo):
+def criptografar(nmArquivo,qtdeBits=8):
     i = 0
     j = 0
     seed()
@@ -13,7 +13,7 @@ def criptografar(nmArquivo):
     print('Numeros aleatórios gerados com sucesso!')
     #2**128
     #p = randint(1000000000000000000000000000000000000000,10000000000000000000000000000000000000000)
-    qtdeBits = 64
+    #qtdeBits = 
     p = randint(2**qtdeBits,2**(qtdeBits+1)-1)
     q = randint(2**qtdeBits,2**(qtdeBits+1)-1)
     #q = randint(1000000000000000000000000000000000000000,10000000000000000000000000000000000000000)

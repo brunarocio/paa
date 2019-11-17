@@ -15,9 +15,9 @@ def pollardRho(n,e):
         p = mdc(x-xp,n)
         i = i+1
     if p == n:
-        return -1
+        return [i,-1]
     else:
-        return p
+        return [i,p]
 
 def mdc(a,b):
     #resto = 1

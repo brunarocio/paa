@@ -34,17 +34,45 @@ except IOError:
 #funcao principal
 def main():
     if (opcao == 'c'):
-        criptografar(nmArquivo)
+        criptografar(nmArquivo,16)
     elif (opcao == 'd'):
         descriptografar()
     elif (opcao == 'qp'):
         quebraChavePollardRho()
     elif (opcao == 'qb'):
         quebraChaveForcaBruta()
+    elif (opcao == 'ta'):
+        testeAutomatizado()
     else:
         print('Escolha uma opcao valida!\n')
 
 ##--
+
+def testeAutomatizado():
+    i = 8
+    nmArqTesteAuto = 'testeauto'
+    while (i<=128):
+        criptografar(nmArquivo,i)
+        publicKey = getChavePublica()
+        n = int(publicKey[0])
+        e = int(publicKey[1])
+        #for j in range(5)
+        hr_ini = datetime.now()
+        chaveQueb = pollardRho(n,e)
+        hr_fim = datetime.now()
+        tempoTotal = hr_fim-hr_ini
+        arqTesteAuto = open(nmArqTesteAuto,'a')
+        #arquivo: qtde bits ; tempo decorrido; total interações; valor chave quebrada; tempo decorrido.
+        valorEncontrado = str(chaveQueb[1])
+        qtdeIteracoes = str(chaveQueb[0])
+        texto = (str(i)+';'+str(tempoTotal)+';'+str(qtdeIteracoes)+';'+str(valorEncontrado))
+        print('Texto: ',texto)
+        #text_str = str(texto)
+        arqTesteAuto.write(texto)
+        arqTesteAuto.write('\n')
+        print(i)
+        i = i+8
+    arqTesteAuto.close()
 
 def quebraChavePollardRho():
     print("Quebra Chave POllard Rho")
@@ -59,10 +87,10 @@ def quebraChavePollardRho():
     chaveQuebrada = pollardRho(n,e)
     hr_fim = datetime.now()
     print('Tempo total para quebra: ',hr_fim-hr_inicio)
-    if (chaveQuebrada < 0):
+    if (chaveQuebrada[1] < 0):
         print('Nao foi possível quebrar a chave!')
     else: 
-        print('Chave quebrada: ',chaveQuebrada)
+        print('Chave quebrada: ',chaveQuebrada[1])
 
 def quebraChaveForcaBruta():
     print("Quebra Chave Forca Bruta")
