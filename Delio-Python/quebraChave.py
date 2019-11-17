@@ -1,4 +1,4 @@
-def forcaBruta:
+def forcaBruta():
     print('Forca Bruta')
 
 def pollardRho(chavePublica):
