@@ -5,7 +5,7 @@ def criptografar(nmArquivo,qtdeBits=8):
     i = 0
     j = 0
     seed()
-    print('Gerando números aleatórios...')
+    print('Gerando números aleatórios de ',qtdeBits,' bits...')
     #p = randint(10000,20000)
     #p = randint(100000000,900000000)
     #q = randint(10000,20000)
