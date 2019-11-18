@@ -7,7 +7,7 @@ def pollardRho(n,e):
     p = mdc(x - xp,n)
     i = 0
     while p == 1:
-        print('Tentativa ',i)
+        #print('Tentativa ',i)
         x = ((x**2+1)%n)
         xp = ((xp**2+1)%n)
         xp = ((xp**2+1)%n)

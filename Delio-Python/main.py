@@ -50,7 +50,7 @@ def main():
 
 ##--
 
-def testeNexecucoes(j=40,k=100):
+def testeNexecucoes(j=48,k=100):
     i = 0
     nmArqTesteAuto = 'testeNauto'
     while (i<=k):
