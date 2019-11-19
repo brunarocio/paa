@@ -1,6 +1,8 @@
 
 from random import *
 
+
+
 def criptografar(nmArquivo,qtdeBits=8):
     i = 0
     j = 0

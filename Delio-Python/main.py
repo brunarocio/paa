@@ -43,6 +43,8 @@ def main():
         quebraChaveForcaBruta()
     elif (opcao == 'ta'):
         testeAutomatizado()
+    elif (opcao == 'taf'):
+        testeAutomatizadoFermat()
     elif (opcao == 'tn'):
         testeNexecucoes()
     else:
@@ -50,7 +52,7 @@ def main():
 
 ##--
 
-def testeNexecucoes(j=48,k=100):
+def testeNexecucoes(j=56,k=100):
     i = 0
     nmArqTesteAuto = 'testeNauto'
     while (i<=k):
@@ -101,6 +103,35 @@ def testeAutomatizado():
         print(i)
         i = i+8
     arqTesteAuto.close()
+
+def testeAutomatizadoFermat():
+    i = 8
+    nmArqTesteAuto = 'testeautonovo'
+    while (i<=128):
+        for x in range (100):
+            criptografar(nmArquivo,i)
+            publicKey = getChavePublica()
+            n = int(publicKey[0])
+            e = int(publicKey[1])
+            #for j in range(5)
+            hr_ini = datetime.now()
+            chaveQueb = bruteForce(n)
+            hr_fim = datetime.now()
+            tempoTotal = hr_fim-hr_ini
+            arqTesteAuto = open(nmArqTesteAuto,'a')
+            print('chave quebrada',chaveQueb)
+            #arquivo: qtde bits ; tipo quebra; tempo decorrido; total interações; valor chave quebrada; tempo decorrido.
+            valorEncontrado = str(chaveQueb[-2])
+            qtdeIteracoes = str(chaveQueb[-1])
+            texto = (str(i)+';Fermat;'+str(tempoTotal)+';'+str(qtdeIteracoes)+';'+str(valorEncontrado))
+            #print('Texto: ',texto)
+            #text_str = str(texto)
+            arqTesteAuto.write(texto)
+            arqTesteAuto.write('\n')
+            print(i)
+            arqTesteAuto.close()
+        i = i+8
+
 
 def quebraChavePollardRho():
     print("Quebra Chave POllard Rho")
