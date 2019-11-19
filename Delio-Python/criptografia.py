@@ -1,29 +1,82 @@
 
 from random import *
+from datetime import *
+
+def gerarChaves():
+    h = 8
+    arqTesteChave = open('ArquivoChaves','a')
+    while (h<=1024):
+        for m in range(10):
+            print('Gerando chave de ',h,' bits')
+            hr_ini = datetime.now()
+            chaves = gerarChave(h)
+            hr_fim = datetime.now()
+            tempoTotal = hr_fim-hr_ini
+
+            texto = (str(h)+';'+str(tempoTotal)+';'+str(chaves))
+            arqTesteChave.write(texto)
+            arqTesteChave.write('\n')
+            print(chaves)
+        h = h+8
+    arqTesteChave.close()
 
 
+def gerarChave(qtdeBits):
+    i = 0
+    j = 0
+    seed()
+    #print('Gerando números aleatórios de ',qtdeBits,' bits...')
+    #print('Numeros aleatórios gerados com sucesso!')
+    p = randint(2**qtdeBits,2**(qtdeBits+1)-1)
+    q = randint(2**qtdeBits,2**(qtdeBits+1)-1)
+    if ((p%2) == 0):
+        p = p+1
+    if ((q%2) == 0):
+        q = q+1
+    #print('Verificando primalidade do primeiro número gerado...')
+    while (verificaPrimalidade(p)==0):
+        i=i+1
+        p = p+2
+    #print('Verificando primalidade do segundo número gerado...')
+    while (verificaPrimalidade(q)==0):
+        j=j+1
+        q = q+2
+    #print('Numeros primos encontrados: \nP: ',p,'\nQ: ',q)
+    #print('Definindo variaveis para criação da chave publica & privada..')
+    n = p*q
+    #definindo e
+    PhiN = phiN(p,q)
+    auxe = 32
+    while (mdc(auxe,PhiN)!=1):
+        auxe+=1
+    e = auxe
+    #e = 3
+      
+    #definindo d
+    x = 1
+    y = 1
+    #eX = euclidesExt(e,PhiN,x,y)
+    d = int(eucliedesExt2(e,PhiN,x))
+    gerarChavePublica(n,e)
+    #print("E: ",e)  
+    #print('D: ',d)
+    #print('Gerando chave publica..')
+    #print('Gerando chave privada...')
+    #auxd = gerarChavePrivada(p,q,n,e)
+    #d = round(auxd,0)
+    #d = euclidesEst(PhiN,e)
+    #print('N: ',n)
+    #print('D: ',d)
+    return(n,d,e)
 
 def criptografar(nmArquivo,qtdeBits=8):
     i = 0
     j = 0
     seed()
     print('Gerando números aleatórios de ',qtdeBits,' bits...')
-    #p = randint(10000,20000)
-    #p = randint(100000000,900000000)
-    #q = randint(10000,20000)
-    #q = randint(100000000,900000000)
     print('Numeros aleatórios gerados com sucesso!')
-    #2**128
-    #p = randint(1000000000000000000000000000000000000000,10000000000000000000000000000000000000000)
-    #qtdeBits = 
     p = randint(2**qtdeBits,2**(qtdeBits+1)-1)
     q = randint(2**qtdeBits,2**(qtdeBits+1)-1)
-    #q = randint(1000000000000000000000000000000000000000,10000000000000000000000000000000000000000)
-    #2**32#p = randint(10000000000,100000000000)
-    #p = randint(10000000000,100000000000)
-    #q = randint(10000000000,100000000000)
-    
-    #print('Numero gerado P: ',p,'\nQ: ',q,'\n')
     if ((p%2) == 0):
         p = p+1
     if ((q%2) == 0):
@@ -31,46 +84,33 @@ def criptografar(nmArquivo,qtdeBits=8):
     print('Verificando primalidade do primeiro número gerado...')
     while (verificaPrimalidade(p)==0):
         i=i+1
-        #print('2 - Tentativa ',i,'Numero ',p,' nao e primo')
-        #print('.')
         p = p+2
-    #print('\n')
-    #print('Primeiro numero primo encontrado\n')
     print('Verificando primalidade do segundo número gerado...')
     while (verificaPrimalidade(q)==0):
         j=j+1
-        #print('2 - Tentativa ',j,'Numero ',q,' nao e primo')
-        #print('.')
         q = q+2
     print('Numeros primos encontrados: \nP: ',p,'\nQ: ',q)
     print('Definindo variaveis para criação da chave publica & privada..')
     n = p*q
-
     #definindo e
     PhiN = phiN(p,q)
-
     auxe = 32
     while (mdc(auxe,PhiN)!=1):
-        #print('.. ',auxe)
         auxe+=1
     e = auxe
     #e = 3
-    
     print("E: ",e)    
-    #Calcular euclides estendido
-    #auxd = mdc(PhiN,e)
-    #print('d?: ',auxd)
     #definindo d
     x = 1
     y = 1
     #eX = euclidesExt(e,PhiN,x,y)
-    eX = int(eucliedesExt2(e,PhiN,x))
-    print('D: ',eX)
+    d = int(eucliedesExt2(e,PhiN,x))
+    print('D: ',d)
     print('Gerando chave publica..')
     gerarChavePublica(n,e)
     print('Gerando chave privada...')
-    auxd = gerarChavePrivada(p,q,n,e)
-    d = round(auxd,0)
+    #auxd = gerarChavePrivada(p,q,n,e)
+    #d = round(auxd,0)
     #d = euclidesEst(PhiN,e)
     print('N: ',n)
     print('D: ',d)

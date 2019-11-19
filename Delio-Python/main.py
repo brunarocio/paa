@@ -47,6 +47,8 @@ def main():
         testeAutomatizadoFermat()
     elif (opcao == 'tn'):
         testeNexecucoes()
+    elif (opcao == 'tc'):
+        gerarChaves()
     else:
         print('Escolha uma opcao valida!\n')
 

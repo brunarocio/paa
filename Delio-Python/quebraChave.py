@@ -30,25 +30,6 @@ def mdc(a,b):
         b = resto
     return a
 
-def bruteForce2(num):
-    p = 1
-    q = 1
-    while True:
-        p = calcularFator (num)
-        while True:
-            q = calcularFator (p)
-            p /= q
-            if (q>1):
-                break
-        num /= p
-        if (p != 1):
-            print('Valor p : ',p)
-        else:
-            print('Valor num: ',num)
-        if (p>1):
-            break
-
-    print('Fatoracao completa!')
 
 def calcularFator(num):
     print('Numero: ',num)
@@ -72,7 +53,6 @@ def calcularFator(num):
         return num
 
 def isqrt(num):
-    #print('passou aqui isqrt')
     return (int(math.sqrt(num)))
  
 def bruteForce(num):
@@ -84,8 +64,6 @@ def bruteForce(num):
         fatores.append(2)
  
     if num == 1:
-        #print('passou primeiro aqui..',fatores)
-        #valor1 = fatores[0]
         fatores.append(z)
         return fatores
  
@@ -99,11 +77,7 @@ def bruteForce(num):
             s = isqrt(m)
             bruteForce(r - s)
             bruteForce(r + s)
- 
             is_prime = False
-            print('Passou depois aqui...',fatores)
-            #valor1 = fatores[0]
-            #print(valor1)
             fatores.append(z)
             return fatores
  
@@ -111,4 +85,3 @@ def bruteForce(num):
      
     if is_prime == True:
         fatores.append(num)
-        #print('parou aqui')
