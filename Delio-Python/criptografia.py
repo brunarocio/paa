@@ -109,7 +109,7 @@ def criptografar(nmArquivo,qtdeBits=8):
     print('Gerando chave publica..')
     gerarChavePublica(n,e)
     print('Gerando chave privada...')
-    #auxd = gerarChavePrivada(p,q,n,e)
+    auxd = gerarChavePrivada(p,q,n,e)
     #d = round(auxd,0)
     #d = euclidesEst(PhiN,e)
     print('N: ',n)
@@ -204,7 +204,7 @@ def criptoArquivoCifrado(nmArquivo,e,n):
         valorCrypto = int(linha)
         ##print(valorCrypto)
         ##print((valorCrypto**e)%n)
-        arquivoCrypto.write(str((valorCrypto**e)%n))
+        arquivoCrypto.write(str(pow(valorCrypto,e,n)))#(valorCrypto**e)%n))
         arquivoCrypto.write('\n')
     arquivoCrypto.close()
     return nmArquivoCrypto

@@ -34,7 +34,7 @@ except IOError:
 #funcao principal
 def main():
     if (opcao == 'c'):
-        criptografar(nmArquivo,16)
+        criptografar(nmArquivo,32)
     elif (opcao == 'd'):
         descriptografar()
     elif (opcao == 'qp'):
@@ -192,6 +192,7 @@ def decifrarArquivo():
     for linha in arquivo:
         #print(linha)
         #print(chr(int(linha)))  
+        print('valor da linha: ',linha)
         arquivoDecif.write(chr(int(linha)))
     arquivoDecif.close()
 
@@ -224,6 +225,7 @@ def descriptografarArquivo():
         #print(e)
         #print('Valor d: ')
         #print(d)
+        print('Valor antes descriptografia ',linha)
         valorCrypto = int(linha)
         #print("valor linha: ")
         #print(valorCrypto)
@@ -232,6 +234,7 @@ def descriptografarArquivo():
         ##print('valor descriptografado: ',pow(valorCrypto,d,n))
         #valorDecrypto = (valorCrypto**d)%n
         valorDecrypto = pow(valorCrypto,d,n)
+        print('Valor depois descriptografia ',valorDecrypto)
         #print(pow(valorCrypto,d))
         arquivoDecrypto.write(str(valorDecrypto))
         arquivoDecrypto.write('\n')
