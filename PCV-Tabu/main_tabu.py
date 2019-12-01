@@ -1,5 +1,6 @@
 import random
 
+#lista de caminhos Tabu
 listaTabu = []
 #definicao da matriz de cidades
 # Jlle | Ara | Jgua | Fpol | Ctba
@@ -8,7 +9,7 @@ matrizDistancias = [[0,40,55,190,130],
 [50,30,0,150,145],
 [185,160,150,0,300],
 [120,135,140,312,0]]
-
+#Qtde de cidades
 cidades = len(matrizDistancias)
 
 def main():
@@ -17,7 +18,7 @@ def main():
     #print('Distancias ',matrizDistancias[0][1])
     solucao = definirSolucao0(5)
     print('Solucao 0: ',solucao)
-    distanciaSolucao = calcularDistanciaSolucao(solucao)
+    distanciaSolucao = calcularFuncaoObjetiva(solucao)
     print('Para esta solução, o tamanho da rota é ',distanciaSolucao)
 
     return 1
@@ -30,7 +31,7 @@ def definirSolucao0(qtde):
             solucao.append(s)
     return solucao
 
-def calcularDistanciaSolucao(solucao):
+def calcularFuncaoObjetiva(solucao):
     distanciaTotal = 0
     for i in range (len(solucao)):
         #print('Adicionado...',solucao[i])
